@@ -23,8 +23,12 @@ This repository contains the source code for a static portfolio website. It serv
 This website is ready to be hosted for free using **GitHub Pages**.
 1. Push your code to a public GitHub repository.
 2. Go to your repository settings.
-3. Navigate to **Pages** on the left sidebar.
-4. Under "Build and deployment", select the `main` branch and click **Save**.
+3. Navigate to **"pages"** on the left sidebar.
+4. Under **"build and deployment"**, select the `main` branch and click **"save"**.
 5. Your website will be live in a few minutes!
+
+Contact information:
+Email: aruzhanmaratova2009@gmail.com
+-P.S. If you have any questions about this website or if you need a help with troubleshooting - email me!
 
 Hope you enjoy it!❤️
