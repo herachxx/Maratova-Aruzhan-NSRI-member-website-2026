@@ -1,0 +1,22 @@
+document.addEventListener("DOMContentLoaded", () => {
+    //select all elements with the class 'fade-in'
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    //create an intersection observer to trigger animations when elements enter the viewport
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                //optional - stop observing once the animation has triggered
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Triggers when 10% of the element is visible
+    });
+
+    //apply observer to each element
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
+});
