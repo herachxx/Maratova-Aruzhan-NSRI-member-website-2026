@@ -27,7 +27,8 @@ This website is ready to be hosted for free using **GitHub Pages**.
 4. Under **"build and deployment"**, select the `main` branch and click **"save"**.
 5. Your website will be live in a few minutes!
 
-Contact information:
+Contact information: 
+
 Email: aruzhanmaratova2009@gmail.com
 -P.S. If you have any questions about this website or if you need a help with troubleshooting - email me!
 
