@@ -3,7 +3,7 @@
 ## Project Structure  
 
 ```
-nsri-portfolio/
+Maratova-Aruzhan-NSRI-member-website-2026/
 │
 ├── index.html
 ├── css/styles.css
