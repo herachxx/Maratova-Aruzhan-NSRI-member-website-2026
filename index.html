@@ -1,375 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aruzhan Maratova — NSRI Director | AIS Kazakhstan</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<style>
-:root{--navy:#0d1b2a;--deep-blue:#1a2f4a;--mid-blue:#1e3a5f;--accent-blue:#2563a8;--gold:#c8a96e;--gold-light:#dfc089;--cream:#f5f0e8;--white:#ffffff;--text-muted:#8a9bb5;--border:rgba(200,169,110,0.2)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);overflow-x:hidden;line-height:1.7}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(13,27,42,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);animation:fadeDown .8s ease both}
-.nav-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
-.nav-logo img{height:34px;filter:drop-shadow(0 0 8px rgba(37,99,168,.4))}
-.nav-logo span{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .3s;position:relative;padding-bottom:2px}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .3s ease}
-.nav-links a:hover{color:var(--gold)}
-.nav-links a:hover::after{width:100%}
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(37,99,168,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(200,169,110,.07) 0%,transparent 50%),linear-gradient(160deg,var(--navy) 0%,var(--deep-blue) 60%,#0a1520 100%)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,169,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,110,.04) 1px,transparent 1px);background-size:60px 60px}
-.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 4rem 6rem;animation:fadeUp 1s .2s ease both}
-.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem}
-.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
-.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5rem);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:.5rem}
-.hero-name em{font-style:italic;color:var(--gold);font-weight:400}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,1.8vw,1.35rem);font-weight:300;color:var(--text-muted);letter-spacing:.05em;margin-bottom:2rem}
-.hero-divider{width:60px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:2rem}
-.hero-desc{font-size:.93rem;color:rgba(245,240,232,.75);max-width:480px;line-height:1.9;margin-bottom:2.5rem}
-.hero-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:3rem}
-.tag{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem .9rem;border:1px solid var(--border);color:var(--text-muted);border-radius:2px;transition:all .3s;cursor:default}
-.tag:hover{border-color:var(--gold);color:var(--gold);background:rgba(200,169,110,.05)}
-.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:.85rem 2rem;background:var(--gold);color:var(--navy);border:none;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,169,110,.3)}
-.btn-outline{font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:.85rem 2rem;background:transparent;color:var(--cream);border:1px solid rgba(245,240,232,.25);border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold);background:rgba(200,169,110,.05);transform:translateY(-2px)}
-.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:8rem 5rem 4rem 2rem;animation:fadeUp 1s .4s ease both}
-.photo-frame{position:relative;width:min(360px,90%)}
-.photo-frame::before{content:'';position:absolute;top:-16px;left:-16px;right:16px;bottom:16px;border:1px solid var(--border);border-radius:4px;z-index:0}
-.photo-frame::after{content:'';position:absolute;top:16px;left:16px;right:-16px;bottom:-16px;background:linear-gradient(135deg,rgba(37,99,168,.2),rgba(200,169,110,.1));border-radius:4px;z-index:0}
-.photo-frame img{position:relative;z-index:1;width:100%;border-radius:4px;filter:grayscale(10%) contrast(1.05);display:block}
-.photo-badge{position:absolute;bottom:-20px;right:-20px;z-index:2;background:var(--gold);color:var(--navy);padding:.8rem 1.2rem;border-radius:3px;font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.4)}
-.stats-bar{background:var(--deep-blue);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 6rem;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:2rem}
-.stat-item{text-align:center}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold);display:block;line-height:1}
-.stat-l{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--text-muted);letter-spacing:.15em;text-transform:uppercase;margin-top:.4rem;display:block}
-.stat-div{width:1px;height:40px;background:var(--border)}
-section{padding:7rem 6rem}
-.section-label{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem}
-.section-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold);opacity:.5}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:1.5rem}
-.section-title em{font-style:italic;color:var(--gold)}
-.section-body{font-size:.93rem;color:rgba(245,240,232,.72);max-width:640px;line-height:1.9}
-#about{background:var(--deep-blue);position:relative;overflow:hidden}
-#about::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,168,.12) 0%,transparent 70%);pointer-events:none}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem}
-.about-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:4px;padding:2rem;transition:all .4s;margin-bottom:1.2rem}
-.about-card:hover{background:rgba(255,255,255,.05);border-color:rgba(200,169,110,.4);transform:translateY(-4px)}
-.about-card-icon{font-size:1.5rem;margin-bottom:1rem}
-.about-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:.7rem}
-.about-card p{font-size:.87rem;color:var(--text-muted);line-height:1.8}
-.info-list{list-style:none;margin-top:1rem}
-.info-list li{display:flex;align-items:baseline;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(200,169,110,.08);font-size:.88rem}
-.info-list li:last-child{border-bottom:none}
-.info-key{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);min-width:110px;flex-shrink:0}
-.info-val{color:rgba(245,240,232,.8)}
-#skills{background:var(--navy)}
-.skills-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:3rem 0}
-.skill-card{padding:2rem;background:linear-gradient(135deg,rgba(37,99,168,.12),rgba(200,169,110,.05));border:1px solid var(--border);border-radius:4px;position:relative;overflow:hidden;transition:all .4s}
-.skill-card::after{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold)}
-.skill-card:hover{border-color:rgba(200,169,110,.5);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
-.skill-card-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--white);margin-bottom:.5rem}
-.skill-card-desc{font-size:.84rem;color:var(--text-muted);line-height:1.7}
-.skills-grid{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
-.skill-pill{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;padding:.45rem 1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:2px;color:var(--text-muted);transition:all .3s;cursor:default}
-.skill-pill:hover{background:rgba(200,169,110,.08);border-color:rgba(200,169,110,.3);color:var(--gold)}
-#nsri{background:linear-gradient(160deg,var(--deep-blue),var(--navy));position:relative;overflow:hidden}
-.nsri-banner{display:flex;align-items:center;gap:3rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px;padding:2.5rem 3rem;margin-bottom:4rem}
-.nsri-banner img{height:80px;flex-shrink:0}
-.nsri-banner-text h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
-.nsri-banner-text p{font-size:.87rem;color:var(--text-muted);max-width:640px}
-.nsri-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:4rem}
-.nsri-stat{text-align:center;padding:2rem 1rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:4px;transition:all .3s}
-.nsri-stat:hover{border-color:rgba(200,169,110,.4);background:rgba(200,169,110,.04)}
-.nsri-stat-n{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--gold);display:block;line-height:1}
-.nsri-stat-l{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;margin-top:.5rem;display:block}
-.nsri-pathways{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
-.pathway-card{padding:2.5rem;border:1px solid var(--border);border-radius:4px;background:rgba(255,255,255,.02);position:relative;transition:all .4s}
-.pathway-card:hover{border-color:rgba(200,169,110,.4);background:rgba(200,169,110,.04);transform:translateY(-4px)}
-.pathway-number{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:rgba(200,169,110,.15);position:absolute;top:1rem;right:2rem;line-height:1}
-.pathway-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:.8rem}
-.pathway-desc{font-size:.87rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem}
-.pathway-link{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:gap .3s}
-.pathway-link:hover{gap:.9rem}
-#education{background:var(--deep-blue)}
-.timeline{margin-top:3rem;position:relative;padding-left:2rem}
-.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent)}
-.timeline-item{position:relative;margin-bottom:3rem;padding-left:2rem}
-.timeline-item::before{content:'';position:absolute;left:-2.4rem;top:8px;width:8px;height:8px;background:var(--gold);border-radius:50%;box-shadow:0 0 12px rgba(200,169,110,.6)}
-.timeline-year{font-family:'DM Mono',monospace;font-size:.63rem;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}
-.timeline-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
-.timeline-sub{font-size:.84rem;color:var(--text-muted);font-style:italic;margin-bottom:.7rem}
-.timeline-desc{font-size:.87rem;color:rgba(245,240,232,.65);line-height:1.8}
-#goals{background:var(--navy)}
-.goals-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
-.goal-card{padding:2rem;border:1px solid var(--border);border-radius:4px;background:rgba(255,255,255,.02);display:flex;gap:1.2rem;align-items:flex-start;transition:all .4s}
-.goal-card:hover{border-color:rgba(200,169,110,.4);background:rgba(200,169,110,.04)}
-.goal-icon{width:40px;height:40px;flex-shrink:0;background:rgba(200,169,110,.1);border:1px solid rgba(200,169,110,.2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
-.goal-content h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
-.goal-content p{font-size:.84rem;color:var(--text-muted);line-height:1.7}
-#join{background:var(--deep-blue);text-align:center;position:relative;overflow:hidden}
-#join::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(37,99,168,.2) 0%,transparent 60%),radial-gradient(ellipse at 50% 100%,rgba(200,169,110,.06) 0%,transparent 60%)}
-#join > *{position:relative;z-index:1}
-#join .section-label{justify-content:center}
-#join .section-label::after{display:none}
-#join .section-label::before{content:'';flex:1;max-width:60px;height:1px;background:var(--gold);opacity:.5}
-.join-desc{font-size:.95rem;color:rgba(245,240,232,.7);max-width:600px;margin:0 auto 3rem;line-height:1.9}
-.join-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:2.5rem}
-.link-card{padding:1.5rem 2rem;min-width:180px;border:1px solid var(--border);border-radius:4px;background:rgba(255,255,255,.03);text-decoration:none;text-align:center;transition:all .3s}
-.link-card:hover{border-color:var(--gold);background:rgba(200,169,110,.07);transform:translateY(-4px)}
-.link-card-icon{font-size:1.5rem;margin-bottom:.5rem}
-.link-card-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;display:block}
-.link-card-desc{font-size:.78rem;color:var(--text-muted)}
-footer{background:#060e18;border-top:1px solid var(--border);padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
-.footer-left{font-family:'DM Mono',monospace;font-size:.67rem;color:var(--text-muted);letter-spacing:.1em;line-height:1.8}
-.footer-left strong{color:var(--gold)}
-.footer-right{font-family:'DM Mono',monospace;font-size:.6rem;color:rgba(138,155,181,.5);letter-spacing:.1em;text-align:right}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-@media(max-width:900px){nav{padding:1rem 2rem}.nav-links{display:none}.hero{grid-template-columns:1fr}.hero-left{padding:7rem 2rem 2rem}.hero-right{padding:1rem 2rem 4rem}section{padding:4rem 2rem}.stats-bar{padding:2rem}.about-grid,.skills-featured,.nsri-stats,.nsri-pathways,.goals-grid{grid-template-columns:1fr}footer{padding:2rem;flex-direction:column;text-align:center}.footer-right{text-align:center}.nsri-banner{flex-direction:column;text-align:center}.stat-div{display:none}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aruzhan Maratova — NSRI Director | AIS Kazakhstan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="nav-logo">
-    <img src="assets/nsri-logo.png" alt="NSRI">
-    <span>NSRI &middot; AIS Kazakhstan</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#nsri">NSRI</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#goals">Goals</a></li>
-    <li><a href="#join">Join</a></li>
-  </ul>
-</nav>
+  <nav class="navbar reveal">
+    <a href="#" class="nav-logo">
+      <img src="assets/nsri-logo.png" alt="NSRI Logo">
+      <span>NSRI &middot; AIS Kazakhstan</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#nsri">NSRI</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
 
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-left">
-    <p class="hero-eyebrow">Director &mdash; NSRI &middot; AIS Chapter &middot; Kazakhstan</p>
-    <h1 class="hero-name">Maratova<br><em>Aruzhan</em></h1>
-    <p class="hero-title">Cybersecurity Researcher &amp; CTF Player &nbsp;&middot;&nbsp; Grade 10 &middot; AIS, Aktobe</p>
-    <div class="hero-divider"></div>
-    <p class="hero-desc">A 16-year-old researcher, problem solver, and NSRI Program Director from Kazakhstan &mdash; building the next generation of student scientists at Aqbobek International School.</p>
-    <div class="hero-tags">
-      <span class="tag">Cybersecurity</span>
-      <span class="tag">CTF Player</span>
-      <span class="tag">Linux</span>
-      <span class="tag">Python &middot; C++</span>
-      <span class="tag">Robotics</span>
-      <span class="tag">NSRI Director</span>
-    </div>
-    <div class="hero-cta">
-      <a href="#nsri" class="btn-primary">About NSRI</a>
-      <a href="#join" class="btn-outline">Get Involved</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="photo-frame">
-      <img src="assets/aruzhan.jpeg" alt="Aruzhan Maratova">
-      <div class="photo-badge">NSRI Director<br>Since Mar 2, 2026<br>AIS &middot; Kazakhstan</div>
-    </div>
-  </div>
-</section>
-
-<div class="stats-bar reveal">
-  <div class="stat-item"><span class="stat-n">10th</span><span class="stat-l">Grade at AIS</span></div>
-  <div class="stat-div"></div>
-  <div class="stat-item"><span class="stat-n">4.29</span><span class="stat-l">GPA / 5.00</span></div>
-  <div class="stat-div"></div>
-  <div class="stat-item"><span class="stat-n">3</span><span class="stat-l">Languages Spoken</span></div>
-  <div class="stat-div"></div>
-  <div class="stat-item"><span class="stat-n">2027</span><span class="stat-l">Graduation Year</span></div>
-  <div class="stat-div"></div>
-  <div class="stat-item"><span class="stat-n">MIT</span><span class="stat-l">Dream University</span></div>
-</div>
-
-<section id="about">
-  <p class="section-label reveal">Who I Am</p>
-  <h2 class="section-title reveal">Student Researcher.<br><em>Curious by Nature.</em></h2>
-  <p class="section-body reveal">Born and raised in Aktobe, Kazakhstan, Aruzhan Maratova is a driven 10th-grade student at Aqbobek International School (AIS). She combines deep technical expertise in cybersecurity and Linux with leadership as the Director of NSRI&rsquo;s school program.</p>
-  <div class="about-grid">
-    <div>
-      <ul class="info-list reveal">
-        <li><span class="info-key">Full Name</span><span class="info-val">Maratova Aruzhan</span></li>
-        <li><span class="info-key">Age</span><span class="info-val">16 years old</span></li>
-        <li><span class="info-key">Location</span><span class="info-val">Aktobe, Kazakhstan</span></li>
-        <li><span class="info-key">School</span><span class="info-val">Aqbobek International School (AIS)</span></li>
-        <li><span class="info-key">Grade</span><span class="info-val">10th Grade &mdash; Class of 2027</span></li>
-        <li><span class="info-key">GPA</span><span class="info-val">4.29 / 5.00 &asymp; 3.43 / 4.00</span></li>
-        <li><span class="info-key">Languages</span><span class="info-val">Russian &middot; Kazakh &middot; English</span></li>
-        <li><span class="info-key">NSRI Role</span><span class="info-val">Director (promoted March 2, 2026)</span></li>
-        <li><span class="info-key">Specialties</span><span class="info-val">Informatics &amp; Mathematics</span></li>
-        <li><span class="info-key">Interests</span><span class="info-val">Cybersecurity, Drones, Electronics, Lock-picking</span></li>
-      </ul>
-    </div>
-    <div>
-      <div class="about-card reveal">
-        <div class="about-card-icon">&#x1F512;</div>
-        <h3>Cybersecurity &amp; CTF</h3>
-        <p>Actively researching network security, vulnerabilities, and data flow. Participates in Capture the Flag competitions, exploring offensive and defensive security techniques.</p>
+  <header class="hero" id="home">
+    <div class="hero-left reveal">
+      <p class="eyebrow">Director &mdash; NSRI &middot; AIS Chapter &middot; Kazakhstan</p>
+      <h1 class="hero-name">Maratova<br><em>Aruzhan</em></h1>
+      <p class="hero-title">Cybersecurity Researcher &amp; CTF Player &nbsp;&middot;&nbsp; Grade 10 &middot; AIS, Aktobe</p>
+      <div class="divider"></div>
+      <p class="hero-desc">A 16-year-old researcher, problem solver, and NSRI Program Director from Kazakhstan &mdash; building the next generation of student scientists at Aqbobek International School.</p>
+      
+      <div class="tags">
+        <span class="tag">Cybersecurity</span>
+        <span class="tag">CTF Player</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Python &middot; C++</span>
+        <span class="tag">Robotics</span>
+        <span class="tag">NSRI Director</span>
       </div>
-      <div class="about-card reveal">
-        <div class="about-card-icon">&#x1F916;</div>
-        <h3>Robotics &amp; Electronics</h3>
-        <p>Hands-on experience with LEGO Mindstorms EV3 &amp; Spike Prime, Arduino, Raspberry Pi 4B, soldering, circuit diagrams, and drone programming in Lua.</p>
-      </div>
-      <div class="about-card reveal">
-        <div class="about-card-icon">&#x2699;&#xFE0F;</div>
-        <h3>Competitive Programming</h3>
-        <p>Active in programming olympiads using C++, Python, and Kotlin. Applies algorithmic thinking and data structures at a competitive level.</p>
+      
+      <div class="hero-cta">
+        <a href="#nsri" class="btn btn-primary">About NSRI</a>
+        <a href="#join" class="btn btn-outline">Get Involved</a>
       </div>
     </div>
-  </div>
-</section>
+    
+    <div class="hero-right reveal delay-1">
+      <div class="photo-frame">
+        <img src="assets/aruzhan.jpeg" alt="Aruzhan Maratova Portrait">
+        <div class="photo-badge">NSRI Director<br>Since Mar 2, 2026<br>AIS &middot; Kazakhstan</div>
+      </div>
+    </div>
+  </header>
 
-<section id="skills">
-  <p class="section-label reveal">Expertise</p>
-  <h2 class="section-title reveal">Technical <em>Skills</em></h2>
-  <p class="section-body reveal">A broad and growing skillset rooted in hands-on practice &mdash; from low-level hardware to high-level programming languages, with a focus on Linux, cybersecurity, and algorithmic problem solving.</p>
-  <div class="skills-featured">
-    <div class="skill-card reveal">
-      <div class="skill-card-title">Linux &amp; Systems</div>
-      <div class="skill-card-desc">Deep familiarity with Linux environments, shell scripting, system administration, and embedded systems including Raspberry Pi 4B.</div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-card-title">Problem Solving</div>
-      <div class="skill-card-desc">Competitive programming, mathematics, dev troubleshooting, and CTF challenges. Algorithmic thinking applied across multiple languages and domains.</div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-card-title">Cybersecurity</div>
-      <div class="skill-card-desc">Researching network vulnerabilities, internet architecture, data flow, and security threats. Active CTF player developing both offensive and defensive skills.</div>
-    </div>
-  </div>
-  <div class="skills-grid reveal">
-    <span class="skill-pill">Python</span><span class="skill-pill">C++</span><span class="skill-pill">MicroPython</span><span class="skill-pill">Lua</span><span class="skill-pill">GitHub</span><span class="skill-pill">Linux</span><span class="skill-pill">Raspberry Pi</span><span class="skill-pill">Arduino</span><span class="skill-pill">Cybersecurity</span><span class="skill-pill">Computer Hardware</span><span class="skill-pill">Building Automation Systems</span><span class="skill-pill">Drone Operating</span><span class="skill-pill">Robotics</span><span class="skill-pill">LEGO Mindstorms EV3</span><span class="skill-pill">LEGO Spike Prime</span><span class="skill-pill">WEDO 2.0</span><span class="skill-pill">Soldering</span><span class="skill-pill">Visual Programming</span><span class="skill-pill">Technical English</span><span class="skill-pill">Critical Thinking</span><span class="skill-pill">Teamwork</span><span class="skill-pill">Discipline</span>
-  </div>
-</section>
+  <section class="stats-bar stagger-grid">
+    <div class="stat-item reveal"><span class="stat-n">10th</span><span class="stat-l">Grade at AIS</span></div>
+    <div class="stat-item reveal"><span class="stat-n">4.29</span><span class="stat-l">GPA / 5.00</span></div>
+    <div class="stat-item reveal"><span class="stat-n">3</span><span class="stat-l">Languages</span></div>
+    <div class="stat-item reveal"><span class="stat-n">2027</span><span class="stat-l">Graduation</span></div>
+    <div class="stat-item reveal"><span class="stat-n">MIT</span><span class="stat-l">Dream University</span></div>
+  </section>
 
-<section id="nsri">
-  <p class="section-label reveal">Organization</p>
-  <h2 class="section-title reveal">National Student<br><em>Research Institute</em></h2>
-  <div class="nsri-banner reveal">
-    <img src="assets/nsri-logo.png" alt="NSRI Logo">
-    <div class="nsri-banner-text">
-      <h2>Global Research Pipeline for Students</h2>
-      <p>NSRI connects high school students, undergraduates, and PhD-level mentors into one structured system for producing real, publishable research. Founded by a student affiliated with MIT Critical Data &mdash; because most students don&rsquo;t lack ability, they lack access.</p>
+  <section id="about" class="section">
+    <div class="container">
+      <p class="section-label reveal">Who I Am</p>
+      <h2 class="section-title reveal">Student Researcher.<br><em>Curious by Nature.</em></h2>
+      <p class="section-body reveal">Born and raised in Aktobe, Kazakhstan, Aruzhan is a driven 10th-grade student at Aqbobek International School (AIS). She combines deep technical expertise in cybersecurity and Linux with leadership as the Director of NSRI&rsquo;s school program.</p>
+      
+      <div class="about-grid stagger-grid">
+        <div class="about-info reveal">
+          <ul class="info-list">
+            <li><span class="info-key">Full Name</span><span class="info-val">Maratova Aruzhan</span></li>
+            <li><span class="info-key">Age</span><span class="info-val">16 years old</span></li>
+            <li><span class="info-key">Location</span><span class="info-val">Aktobe, Kazakhstan</span></li>
+            <li><span class="info-key">School</span><span class="info-val">Aqbobek International School (AIS)</span></li>
+            <li><span class="info-key">Grade</span><span class="info-val">10th Grade &mdash; Class of 2027</span></li>
+            <li><span class="info-key">GPA</span><span class="info-val">4.29 / 5.00 &asymp; 3.43 / 4.00</span></li>
+            <li><span class="info-key">Languages</span><span class="info-val">Russian &middot; Kazakh &middot; English</span></li>
+            <li><span class="info-key">NSRI Role</span><span class="info-val">Director (promoted March 2, 2026)</span></li>
+          </ul>
+        </div>
+        <div class="about-cards">
+          <div class="card reveal">
+            <div class="card-icon">&#x1F512;</div>
+            <h3>Cybersecurity &amp; CTF</h3>
+            <p>Actively researching network security, vulnerabilities, and data flow. Participates in Capture the Flag competitions.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">&#x1F916;</div>
+            <h3>Robotics &amp; Electronics</h3>
+            <p>Hands-on experience with LEGO Mindstorms, Arduino, Raspberry Pi 4B, and drone programming in Lua.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">&#x2699;&#xFE0F;</div>
+            <h3>Competitive Programming</h3>
+            <p>Active in programming olympiads using C++, Python, and Kotlin. Applies advanced algorithmic thinking.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="nsri-stats reveal">
-    <div class="nsri-stat"><span class="nsri-stat-n">152+</span><span class="nsri-stat-l">Active Chapters</span></div>
-    <div class="nsri-stat"><span class="nsri-stat-n">93+</span><span class="nsri-stat-l">Countries</span></div>
-    <div class="nsri-stat"><span class="nsri-stat-n">3,584</span><span class="nsri-stat-l">Active Researchers</span></div>
-    <div class="nsri-stat"><span class="nsri-stat-n">64</span><span class="nsri-stat-l">Papers Published</span></div>
-    <div class="nsri-stat"><span class="nsri-stat-n">456+</span><span class="nsri-stat-l">Professors Involved</span></div>
-    <div class="nsri-stat"><span class="nsri-stat-n">$10K</span><span class="nsri-stat-l">Research Prize (May)</span></div>
-    <div class="nsri-stat"><span class="nsri-stat-n">102</span><span class="nsri-stat-l">Active Research Groups</span></div>
-    <div class="nsri-stat"><span class="nsri-stat-n">649K</span><span class="nsri-stat-l">Total Impressions</span></div>
-  </div>
-  <p class="section-label reveal" style="margin-top:3rem">Research Pathways</p>
-  <h3 class="section-title reveal" style="font-size:1.8rem">Two ways to <em>participate</em></h3>
-  <div class="nsri-pathways">
-    <div class="pathway-card reveal">
-      <div class="pathway-number">01</div>
-      <div class="pathway-title">NSRI Lead Researcher</div>
-      <p class="pathway-desc">Lead a team of up to 5 members through a full research project to publication. Designed for students with prior publications or a major research award. Undergraduate level and above recommended.</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSezapg1YiCcaqrcuVrLbxasBxS7BJpmK6zgsuKgQzZscGQoQg/viewform?usp=header" class="pathway-link" target="_blank">Apply as Lead Researcher &rarr;</a>
-    </div>
-    <div class="pathway-card reveal">
-      <div class="pathway-number">02</div>
-      <div class="pathway-title">NSRI Researcher</div>
-      <p class="pathway-desc">Join an existing research team and work toward publication. Recommended for high school students. No prior experience required &mdash; proof of action matters more than background.</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRpaV17WwNGAAy86FF9VFYrpmZ_yRSQEMISS_Uq5lRHS1fow/viewform?usp=header" class="pathway-link" target="_blank">Apply as Researcher &rarr;</a>
-    </div>
-  </div>
-  <div style="margin-top:3rem;padding:2rem;background:rgba(200,169,110,.06);border:1px solid var(--border);border-radius:4px" class="reveal">
-    <p class="section-label">Aruzhan&rsquo;s NSRI Role</p>
-    <p style="font-size:.9rem;color:rgba(245,240,232,.75);line-height:1.9;max-width:800px">Aruzhan was accepted into NSRI as a <strong style="color:var(--gold)">School Ambassador</strong> on January 17, 2026, and was promoted to <strong style="color:var(--gold)">Program Director</strong> on March 2, 2026 &mdash; one of the fastest progressions in the program. As Director at AIS, she is responsible for building and managing the school&rsquo;s NSRI chapter, recruiting students into the global research pipeline, and serving as the bridge between AIS and the worldwide NSRI network.</p>
-  </div>
-</section>
+  </section>
 
-<section id="education">
-  <p class="section-label reveal">Background</p>
-  <h2 class="section-title reveal">Academic <em>Journey</em></h2>
-  <div class="timeline">
-    <div class="timeline-item reveal">
-      <p class="timeline-year">March 2, 2026 &mdash; Present</p>
-      <p class="timeline-title">NSRI Program Director</p>
-      <p class="timeline-sub">National Student Research Institute &middot; AIS Chapter</p>
-      <p class="timeline-desc">Promoted to Director of the NSRI program after rapid progress as Ambassador. Responsible for chapter development, student recruitment, and coordination with the global NSRI network of 93+ countries.</p>
+  <section id="skills" class="section alt-bg">
+    <div class="container">
+      <p class="section-label reveal">Expertise</p>
+      <h2 class="section-title reveal">Technical <em>Skills</em></h2>
+      <p class="section-body reveal">A broad skillset rooted in hands-on practice &mdash; from low-level hardware to high-level programming languages.</p>
+      
+      <div class="skills-featured stagger-grid">
+        <div class="card skill-card reveal">
+          <div class="card-title">Linux &amp; Systems</div>
+          <p>Deep familiarity with Linux environments, shell scripting, system administration, and embedded systems.</p>
+        </div>
+        <div class="card skill-card reveal">
+          <div class="card-title">Problem Solving</div>
+          <p>Competitive programming, mathematics, dev troubleshooting, and algorithmic thinking.</p>
+        </div>
+        <div class="card skill-card reveal">
+          <div class="card-title">Cybersecurity</div>
+          <p>Researching vulnerabilities, architecture, and threats. Active CTF player.</p>
+        </div>
+      </div>
+      
+      <div class="skills-pill-grid stagger-grid">
+        <span class="skill-pill reveal">Python</span><span class="skill-pill reveal">C++</span><span class="skill-pill reveal">Linux</span><span class="skill-pill reveal">Raspberry Pi</span><span class="skill-pill reveal">Cybersecurity</span><span class="skill-pill reveal">Robotics</span><span class="skill-pill reveal">Arduino</span><span class="skill-pill reveal">Lua</span>
+      </div>
     </div>
-    <div class="timeline-item reveal">
-      <p class="timeline-year">January 17, 2026</p>
-      <p class="timeline-title">Accepted as NSRI School Ambassador</p>
-      <p class="timeline-sub">National Student Research Institute &middot; Global Program</p>
-      <p class="timeline-desc">Joined a global cohort of school ambassadors representing institutions across multiple countries. Assigned a mentor and began building NSRI presence at AIS, Aktobe.</p>
+  </section>
+
+  <section id="nsri" class="section">
+    <div class="container">
+      <p class="section-label reveal">Organization</p>
+      <h2 class="section-title reveal">National Student<br><em>Research Institute</em></h2>
+      
+      <div class="nsri-banner reveal">
+        <img src="assets/nsri-logo.png" alt="NSRI Logo">
+        <div>
+          <h3>Global Research Pipeline for Students</h3>
+          <p>NSRI connects high school students, undergraduates, and PhD-level mentors into one structured system for producing real, publishable research.</p>
+        </div>
+      </div>
+
+      <div class="nsri-stats stagger-grid">
+        <div class="nsri-stat reveal"><span class="stat-n">152+</span><span class="stat-l">Chapters</span></div>
+        <div class="nsri-stat reveal"><span class="stat-n">93+</span><span class="stat-l">Countries</span></div>
+        <div class="nsri-stat reveal"><span class="stat-n">3,584</span><span class="stat-l">Researchers</span></div>
+        <div class="nsri-stat reveal"><span class="stat-n">64</span><span class="stat-l">Papers Published</span></div>
+      </div>
+
+      <div class="director-note reveal">
+        <h4>Aruzhan&rsquo;s NSRI Role</h4>
+        <p>Promoted to <strong>Program Director</strong> on March 2, 2026. Responsible for building and managing the school&rsquo;s NSRI chapter, recruiting students, and serving as the bridge between AIS and the worldwide NSRI network.</p>
+      </div>
     </div>
-    <div class="timeline-item reveal">
-      <p class="timeline-year">January 2025 &mdash; May 2027</p>
-      <p class="timeline-title">Aqbobek International School (AIS) &mdash; Aqbobek Lyceum</p>
-      <p class="timeline-sub">Aktobe, Kazakhstan &middot; Grades 9&ndash;11</p>
-      <p class="timeline-desc">Activities include public speaking, electrical engineering with Arduino, embedded software development (Arduino, Raspberry Pi), and drone simulator competitions (DCL: The Game, LiftOff).</p>
+  </section>
+
+  <section id="education" class="section alt-bg">
+    <div class="container">
+      <p class="section-label reveal">Background</p>
+      <h2 class="section-title reveal">Academic <em>Journey</em></h2>
+      
+      <div class="timeline stagger-grid">
+        <div class="timeline-item reveal">
+          <div class="timeline-year">Mar 2026 &mdash; Present</div>
+          <div class="timeline-title">NSRI Program Director</div>
+          <div class="timeline-sub">NSRI &middot; AIS Chapter</div>
+          <p>Responsible for chapter development, student recruitment, and global coordination.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">Jan 2026</div>
+          <div class="timeline-title">NSRI School Ambassador</div>
+          <div class="timeline-sub">NSRI &middot; Global Program</div>
+          <p>Joined the global cohort, assigned a mentor, and began building the AIS chapter.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2025 &mdash; 2027</div>
+          <div class="timeline-title">Aqbobek International School (AIS)</div>
+          <div class="timeline-sub">Aktobe &middot; Grades 9&ndash;11</div>
+          <p>Active in engineering, embedded software development, and drone simulator competitions.</p>
+        </div>
+      </div>
     </div>
-    <div class="timeline-item reveal">
-      <p class="timeline-year">September 2016 &mdash; December 2025</p>
-      <p class="timeline-title">Secondary School-Gymnasium No. 32 named after M. Kurmangaliyeva</p>
-      <p class="timeline-sub">Aktobe, Kazakhstan &middot; Grades 1&ndash;9</p>
-      <p class="timeline-desc">Participated in Debate Club, Robotics (LEGO Mindstorms EV3, Spike Prime, WEDO 2.0), and Programming Olympiads. Built foundational skills in competitive programming and technology over nine years.</p>
+  </section>
+
+  <section id="goals" class="section">
+    <div class="container">
+      <p class="section-label reveal">Looking Ahead</p>
+      <h2 class="section-title reveal">Goals <em>by 2027</em></h2>
+      
+      <div class="goals-grid stagger-grid">
+        <div class="card goal-card reveal">
+          <div class="card-icon">&#x1F393;</div>
+          <div>
+            <h3>MIT &mdash; Dream University</h3>
+            <p>Targeting Massachusetts Institute of Technology for Cybersecurity.</p>
+          </div>
+        </div>
+        <div class="card goal-card reveal">
+          <div class="card-icon">&#x1F4CA;</div>
+          <div>
+            <h3>SAT Score: 1500+</h3>
+            <p>Aiming for top percentile based on a strong foundation in math.</p>
+          </div>
+        </div>
+        <div class="card goal-card reveal">
+          <div class="card-icon">&#x1F52C;</div>
+          <div>
+            <h3>Published Research</h3>
+            <p>Working within NSRI to publish real research before graduation.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="goals">
-  <p class="section-label reveal">Looking Ahead</p>
-  <h2 class="section-title reveal">Academic Goals <em>by 2027</em></h2>
-  <p class="section-body reveal">With a clear vision for her future, Aruzhan is systematically working toward university admission abroad &mdash; targeting MIT to study her passion: cybersecurity.</p>
-  <div class="goals-grid">
-    <div class="goal-card reveal"><div class="goal-icon">&#x1F393;</div><div class="goal-content"><h3>MIT &mdash; Dream University</h3><p>Targeting Massachusetts Institute of Technology for Cybersecurity. Actively building every component of a competitive international application.</p></div></div>
-    <div class="goal-card reveal"><div class="goal-icon">&#x1F4DD;</div><div class="goal-content"><h3>IELTS Score: 7.5+</h3><p>Target by end of 2027. Currently fluent in English, Russian, and Kazakh &mdash; pursuing academic-level certification to meet top university requirements.</p></div></div>
-    <div class="goal-card reveal"><div class="goal-icon">&#x1F4CA;</div><div class="goal-content"><h3>SAT Score: 1500+</h3><p>Aiming for 1500+ on the SAT by 2027, building on a strong foundation in mathematics and informatics &mdash; her specialized subjects.</p></div></div>
-    <div class="goal-card reveal"><div class="goal-icon">&#x1F4C1;</div><div class="goal-content"><h3>Strong Research Portfolio</h3><p>Developing a portfolio through NSRI research, CTF competitions, robotics, and programming olympiads to demonstrate real-world impact.</p></div></div>
-    <div class="goal-card reveal"><div class="goal-icon">&#x2709;&#xFE0F;</div><div class="goal-content"><h3>Motivation Letter</h3><p>Preparing a compelling, high-quality motivation letter for admissions &mdash; telling the authentic story of a young researcher from Kazakhstan.</p></div></div>
-    <div class="goal-card reveal"><div class="goal-icon">&#x1F52C;</div><div class="goal-content"><h3>Published Research</h3><p>Working within NSRI to contribute to real research groups, aiming for publication before graduation to demonstrate academic-level capability.</p></div></div>
-  </div>
-</section>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <strong>Maratova Aruzhan</strong><br>
+        NSRI Program Director &middot; AIS, Kazakhstan<br>
+        Class of 2027
+      </div>
+      <div class="footer-right">
+        National Student Research Institute<br>
+        &copy; 2026 &middot; All Rights Reserved
+      </div>
+    </div>
+  </footer>
 
-<section id="join">
-  <p class="section-label reveal">Get Involved</p>
-  <h2 class="section-title reveal">Join the NSRI<br><em>Research Pipeline</em></h2>
-  <p class="join-desc reveal">Are you a student at AIS or curious about research? NSRI is free, global, and designed for students exactly like you. No prior experience needed &mdash; just the will to start.</p>
-  <div class="join-links reveal">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRpaV17WwNGAAy86FF9VFYrpmZ_yRSQEMISS_Uq5lRHS1fow/viewform?usp=header" class="link-card" target="_blank"><div class="link-card-icon">&#x1F4CB;</div><span class="link-card-title">Apply as Researcher</span><div class="link-card-desc">High school students welcome</div></a>
-    <a href="https://www.linkedin.com/company/nsri-official/" class="link-card" target="_blank"><div class="link-card-icon">&#x1F4BC;</div><span class="link-card-title">LinkedIn</span><div class="link-card-desc">Follow NSRI Official</div></a>
-    <a href="https://discord.gg/DZ9FwNYSeJ" class="link-card" target="_blank"><div class="link-card-icon">&#x1F4AC;</div><span class="link-card-title">Discord</span><div class="link-card-desc">Join the community</div></a>
-    <a href="https://docs.google.com/document/d/1-sbIHMXYCO7OlAOu-e2Q4U62QWQkMR-JnDsBTpP10LA/edit" class="link-card" target="_blank"><div class="link-card-icon">&#x1F4D6;</div><span class="link-card-title">Chapter Guide</span><div class="link-card-desc">Start a chapter at your school</div></a>
-  </div>
-  <div style="margin-top:4rem;padding:2.5rem 3rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px;max-width:700px;margin-left:auto;margin-right:auto" class="reveal">
-    <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--white);margin-bottom:1rem;line-height:1.5">&ldquo;Most students aren&rsquo;t missing ability &mdash; they&rsquo;re missing access. NSRI is here to fix that.&rdquo;</p>
-    <p style="font-family:'DM Mono',monospace;font-size:.63rem;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase">&mdash; Minwoo (Brian) Kang, Founder &amp; President, NSRI &middot; MIT Critical Data</p>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-left"><strong>Maratova Aruzhan</strong><br>NSRI Program Director &middot; AIS, Aktobe, Kazakhstan<br>Grade 10 &middot; Class of 2027 &middot; UTC+5</div>
-  <div class="footer-right">National Student Research Institute<br>linkedin.com/company/nsri-official<br>&copy; 2026 &middot; All Rights Reserved</div>
-</footer>
-
-<script>
-const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-document.querySelectorAll('.skills-featured,.about-grid .about-card,.nsri-pathways,.goals-grid').forEach(grid=>{(grid.classList.contains('reveal')?[grid]:grid.querySelectorAll('.reveal')).forEach((el,i)=>{el.style.transitionDelay=(i*.12)+'s'})});
-</script>
 </body>
 </html>
