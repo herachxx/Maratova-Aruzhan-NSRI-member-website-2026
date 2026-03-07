@@ -54,3 +54,7 @@ To host online, upload all files (maintaining the folder structure) to any web h
 
 ---
 Built by Maratova Aruzhan · AIS (Aqbobek International School) · Aktobe, Kazakhstan · 2026  
+
+Contact information: aruzhanmaratova2009@gmail.com
+
+Be free to ask any questions! ❤️
