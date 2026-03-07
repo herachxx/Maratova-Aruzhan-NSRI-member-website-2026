@@ -6,8 +6,8 @@
 Maratova-Aruzhan-NSRI-member-website-2026/
 │
 ├── index.html
-├── css/styles.css
-├── js/app.js
+├── styles.css
+├── app.js
 │
 ├── assets/
 │   ├── aruzhan.jpeg
