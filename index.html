@@ -3,306 +3,709 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Aruzhan Maratova — NSRI Program Director at AIS Kazakhstan. Cybersecurity researcher, CTF player, robotics engineer, and competitive programmer from Aktobe, Kazakhstan." />
+  <meta name="description" content="Aruzhan Maratova — NSRI Program Director at AIS Kazakhstan. Cybersecurity researcher, CTF player, and competitive programmer from Aktobe, Kazakhstan." />
   <meta name="author" content="Aruzhan Maratova" />
   <meta property="og:title" content="Aruzhan Maratova — NSRI Program Director" />
   <meta property="og:description" content="Cybersecurity researcher & NSRI Program Director at AIS Kazakhstan." />
   <meta property="og:type" content="website" />
+
   <title>Aruzhan Maratova — NSRI Program Director · AIS Kazakhstan</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons (Simple Icons CDN for brand logos + Lucide for UI) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <div class="page-progress" id="progress-bar" aria-hidden="true"></div>
-  <button class="nav-trigger" id="nav-trigger" aria-label="Open navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
+<body class="nav-is-open">
+
+  <!-- Scroll progress bar -->
+  <div id="progress-bar" class="progress-bar" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════
+       SIDE NAVIGATION
+  ══════════════════════════════════════ -->
+  <button id="nav-trigger" class="nav-trigger" aria-label="Toggle navigation" aria-expanded="true" aria-controls="side-nav">
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
-  <nav class="side-nav" id="side-nav" aria-label="Site navigation">
-    <div class="side-nav-header">
-      <a href="#home" class="side-nav-logo" aria-label="Back to top">
-        <img src="assets/nsri-logo.png" alt="NSRI Logo" />
-        <span>NSRI · AIS</span>
-      </a>
-      <button class="side-nav-close" id="nav-close" aria-label="Close navigation">&#x2715;</button>
-    </div>
-    <ul class="side-nav-links" role="list">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#nsri">NSRI</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#goals">Goals</a></li>
-      <li><a href="#join">Join NSRI</a></li>
-      <li><a href="#contacts">Contact</a></li>
-    </ul>
-    <div class="side-nav-footer">
-      <p>Aktobe, KZ · UTC+5</p>
-      <p>Grade 10 · Class of 2027</p>
+
+  <nav id="side-nav" class="side-nav" aria-label="Site navigation">
+    <div class="side-nav-inner">
+
+      <div class="side-nav-header">
+        <a href="#home" class="side-nav-logo" aria-label="Back to top">
+          <img src="assets/nsri-logo.png" alt="NSRI" />
+          <span>NSRI · AIS</span>
+        </a>
+      </div>
+
+      <ul class="side-nav-links">
+        <li><a href="#about"    ><i class="fa-regular fa-user"        aria-hidden="true"></i><span>About</span></a></li>
+        <li><a href="#skills"   ><i class="fa-solid  fa-code"         aria-hidden="true"></i><span>Skills</span></a></li>
+        <li><a href="#nsri"     ><i class="fa-solid  fa-flask"        aria-hidden="true"></i><span>NSRI</span></a></li>
+        <li><a href="#education"><i class="fa-solid  fa-graduation-cap" aria-hidden="true"></i><span>Education</span></a></li>
+        <li><a href="#goals"    ><i class="fa-solid  fa-bullseye"     aria-hidden="true"></i><span>Goals</span></a></li>
+        <li><a href="#join"     ><i class="fa-solid  fa-paper-plane"  aria-hidden="true"></i><span>Join NSRI</span></a></li>
+        <li><a href="#contacts" ><i class="fa-regular fa-envelope"    aria-hidden="true"></i><span>Contact</span></a></li>
+      </ul>
+
+      <div class="side-nav-footer">
+        <p>Aktobe · Kazakhstan · UTC+5</p>
+        <p>Grade 10 · Class of 2027</p>
+      </div>
+
     </div>
   </nav>
-  <div class="site-wrap" id="site-wrap">
-    <section class="hero" id="home" aria-label="Introduction">
-      <div class="hero-background" aria-hidden="true"></div>
-      <div class="hero-grid-lines" aria-hidden="true"></div>
-      <div class="hero-orb" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════ -->
+  <div id="site-wrap" class="site-wrap nav-is-open">
+
+    <!-- ── HERO ── -->
+    <section id="home" class="hero" aria-label="Introduction">
+      <div class="hero-bg"        aria-hidden="true"></div>
+      <div class="hero-grid"      aria-hidden="true"></div>
+      <div class="hero-orb"       aria-hidden="true"></div>
+
       <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-line" aria-hidden="true"></span>
-          <span class="hero-eyebrow-text">Director — NSRI · AIS Chapter · Kazakhstan</span>
-        </div>
+        <p class="eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          Director — NSRI · AIS Chapter · Kazakhstan
+        </p>
+
         <h1 class="hero-name">Maratova<br /><em>Aruzhan</em></h1>
-        <p class="hero-subtitle">Cybersecurity Researcher &amp; CTF Player &nbsp;&middot;&nbsp; Grade 10 · AIS, Aktobe</p>
+
+        <p class="hero-role">
+          Cybersecurity Researcher &amp; CTF Player
+          <span class="dot" aria-hidden="true">·</span>
+          Grade 10, AIS Aktobe
+        </p>
+
         <div class="hero-divider" aria-hidden="true"></div>
-        <p class="hero-bio">A driven young researcher from Kazakhstan, leading the NSRI chapter at Aqbobek International School. Passionate about cybersecurity, robotics, and algorithmic problem-solving — building the foundations for a career at the forefront of technology.</p>
-        <div class="hero-tags" aria-label="Key areas">
-          <span class="tag">Cybersecurity</span>
-          <span class="tag">CTF</span>
-          <span class="tag">Robotics</span>
-          <span class="tag">Comp. Programming</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Arduino</span>
-          <span class="tag">Research</span>
-        </div>
+
+        <p class="hero-bio">
+          A driven young researcher from Kazakhstan, leading the NSRI chapter at
+          Aqbobek International School. Focused on cybersecurity, Linux systems,
+          and algorithmic problem-solving — building a foundation for a career at
+          the forefront of technology.
+        </p>
+
+        <ul class="hero-tags" aria-label="Core focus areas">
+          <li>Cybersecurity</li>
+          <li>CTF</li>
+          <li>Linux</li>
+          <li>Comp. Programming</li>
+          <li>Research</li>
+          <li>Leadership</li>
+        </ul>
+
         <div class="hero-actions">
-          <a href="#nsri" class="btn btn-gold">Explore NSRI</a>
-          <a href="#contacts" class="btn btn-ghost">Get in Touch</a>
+          <a href="#nsri"     class="btn btn-primary">Explore NSRI</a>
+          <a href="#contacts" class="btn btn-outline" >Get in Touch</a>
         </div>
       </div>
-      <div class="hero-photo-wrap">
-        <div class="photo-container">
-          <div class="photo-frame-border" aria-hidden="true"></div>
-          <div class="photo-frame-shadow" aria-hidden="true"></div>
+
+      <div class="hero-photo">
+        <div class="photo-wrap">
+          <div class="photo-border"  aria-hidden="true"></div>
+          <div class="photo-shadow"  aria-hidden="true"></div>
           <img src="assets/aruzhan.jpeg" alt="Aruzhan Maratova" />
-          <div class="photo-label">NSRI Program Director<br />AIS · Aktobe, Kazakhstan</div>
+          <div class="photo-badge">
+            NSRI Program Director<br />
+            AIS · Aktobe, Kazakhstan
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="stats-bar" aria-label="Key facts">
-      <div class="stat"><span class="stat-number">16</span><span class="stat-label">Years Old</span></div>
+    <!-- ── STATS BAR ── -->
+    <div class="stats-bar" aria-label="Quick facts">
+      <div class="stat">
+        <span class="stat-n">16</span>
+        <span class="stat-l">Years Old</span>
+      </div>
       <div class="stat-sep" aria-hidden="true"></div>
-      <div class="stat"><span class="stat-number">3</span><span class="stat-label">Languages</span></div>
+      <div class="stat">
+        <span class="stat-n">3</span>
+        <span class="stat-l">Languages</span>
+      </div>
       <div class="stat-sep" aria-hidden="true"></div>
-      <div class="stat"><span class="stat-number">9+</span><span class="stat-label">Years in Tech</span></div>
+      <div class="stat">
+        <span class="stat-n">9+</span>
+        <span class="stat-l">Years in Tech</span>
+      </div>
       <div class="stat-sep" aria-hidden="true"></div>
-      <div class="stat"><span class="stat-number">93+</span><span class="stat-label">NSRI Countries</span></div>
+      <div class="stat">
+        <span class="stat-n">93+</span>
+        <span class="stat-l">NSRI Countries</span>
+      </div>
       <div class="stat-sep" aria-hidden="true"></div>
-      <div class="stat"><span class="stat-number">2027</span><span class="stat-label">Class Year</span></div>
+      <div class="stat">
+        <span class="stat-n">2027</span>
+        <span class="stat-l">Graduation</span>
+      </div>
     </div>
 
-    <section id="about" aria-labelledby="about-heading">
+    <!-- ── ABOUT ── -->
+    <section id="about" aria-labelledby="about-h">
       <p class="section-label reveal">Profile</p>
-      <h2 class="section-title reveal" id="about-heading">About <em>Aruzhan</em></h2>
+      <h2 class="section-title reveal" id="about-h">About <em>Aruzhan</em></h2>
+
       <div class="about-grid">
-        <div>
-          <p class="section-body reveal">Aruzhan Maratova is a Grade 10 student at Aqbobek International School in Aktobe, Kazakhstan, and currently serves as the NSRI Program Director for the AIS chapter — one of the fastest progressions in the program's history, going from Ambassador to Director in just 44 days.</p>
-          <p class="section-body reveal" style="margin-top:1rem;">With a deep focus on cybersecurity, embedded systems, and competitive programming, Aruzhan is systematically building the expertise and portfolio needed for her goal: studying cybersecurity at MIT. Trilingual, passionate about drones and lock-picking, and committed to making research accessible to every student in Kazakhstan.</p>
-          <dl class="info-compact reveal" aria-label="Personal information">
-            <div class="info-item"><dt>Location</dt><dd>Aktobe, Kazakhstan</dd></div>
-            <div class="info-item"><dt>School</dt><dd>Aqbobek International School (AIS)</dd></div>
-            <div class="info-item"><dt>Grade</dt><dd>10 · Class of 2027</dd></div>
-            <div class="info-item"><dt>Languages</dt><dd>Kazakh, Russian, English</dd></div>
-            <div class="info-item"><dt>Specialties</dt><dd>Informatics &amp; Mathematics</dd></div>
-            <div class="info-item"><dt>Interests</dt><dd>Cybersecurity, Drones, Electronics, Lock-picking</dd></div>
+
+        <div class="about-left">
+          <p class="body-text reveal">
+            Aruzhan Maratova is a Grade 10 student at Aqbobek International School
+            in Aktobe, Kazakhstan. She currently serves as the NSRI Program Director
+            for the AIS chapter — one of the fastest progressions in the program's
+            history, advancing from Ambassador to Director in just 44 days.
+          </p>
+          <p class="body-text reveal">
+            With a focused track in cybersecurity, Linux systems, and competitive
+            programming, Aruzhan is methodically building the expertise and portfolio
+            needed to pursue her long-term goal: studying Cybersecurity at MIT.
+            She is trilingual and passionate about drones, electronics, and
+            lock-picking.
+          </p>
+
+          <dl class="info-grid reveal">
+            <div class="info-item">
+              <dt>Location</dt>
+              <dd>Aktobe, Kazakhstan</dd>
+            </div>
+            <div class="info-item">
+              <dt>School</dt>
+              <dd>Aqbobek International School</dd>
+            </div>
+            <div class="info-item">
+              <dt>Grade</dt>
+              <dd>10 · Class of 2027</dd>
+            </div>
+            <div class="info-item">
+              <dt>Languages</dt>
+              <dd>Kazakh, Russian, English</dd>
+            </div>
+            <div class="info-item">
+              <dt>Specialties</dt>
+              <dd>Informatics &amp; Mathematics</dd>
+            </div>
+            <div class="info-item">
+              <dt>Interests</dt>
+              <dd>Cybersecurity, Drones, Electronics, Lock-picking</dd>
+            </div>
           </dl>
         </div>
-        <div>
+
+        <div class="about-right">
           <article class="card reveal">
-            <span class="card-icon" aria-hidden="true">&#x1F512;</span>
+            <div class="card-icon-wrap" aria-hidden="true">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
             <h3>Cybersecurity &amp; CTF</h3>
-            <p>Actively researching network security, vulnerabilities, and data flow. Participates in Capture the Flag competitions, developing both offensive and defensive security techniques.</p>
+            <p>Actively researching network security, vulnerabilities, and data flow.
+               Participates in Capture the Flag competitions, developing offensive
+               and defensive techniques across cryptography, web, and binary domains.</p>
           </article>
+
           <article class="card reveal">
-            <span class="card-icon" aria-hidden="true">&#x1F916;</span>
+            <div class="card-icon-wrap" aria-hidden="true">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
             <h3>Robotics &amp; Electronics</h3>
-            <p>Hands-on experience with LEGO Mindstorms EV3 &amp; Spike Prime, Arduino, Raspberry Pi 4B, soldering, circuit diagrams, and drone programming in Lua.</p>
+            <p>Hands-on with LEGO Mindstorms EV3 &amp; Spike Prime, Arduino,
+               Raspberry Pi 4B, soldering, circuit design, and drone programming in Lua.
+               Competes in DCL: The Game and LiftOff simulators.</p>
           </article>
+
           <article class="card reveal">
-            <span class="card-icon" aria-hidden="true">&#x2699;&#xFE0F;</span>
+            <div class="card-icon-wrap" aria-hidden="true">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
             <h3>Competitive Programming</h3>
-            <p>Active in programming olympiads using C++, Python, and Kotlin. Applies algorithmic thinking and data structures at a competitive level.</p>
+            <p>Active in national and international olympiads using C++, Python, and Kotlin.
+               Applies algorithmic thinking, data structures, and mathematical reasoning
+               at a competitive level.</p>
           </article>
         </div>
+
       </div>
     </section>
 
-    <section id="skills" aria-labelledby="skills-heading">
+    <!-- ── SKILLS ── -->
+    <section id="skills" aria-labelledby="skills-h">
       <p class="section-label reveal">Expertise</p>
-      <h2 class="section-title reveal" id="skills-heading">Technical <em>Skills</em></h2>
-      <p class="section-body reveal">Core competencies built through years of hands-on practice — from low-level hardware to high-level languages, with a sharp focus on cybersecurity and systems.</p>
+      <h2 class="section-title reveal" id="skills-h">Core <em>Skills</em></h2>
+      <p class="body-text reveal" style="max-width:680px;">
+        Five domains that define Aruzhan's professional identity — each built
+        through years of hands-on competitions, research, and self-directed study.
+      </p>
+
       <div class="top-skills">
-        <div class="top-skill-card reveal">
-          <div class="top-skill-index" aria-hidden="true">01</div>
-          <div class="top-skill-icon" aria-hidden="true">&#x1F6E1;</div>
-          <h3 class="top-skill-title">Cybersecurity</h3>
-          <p class="top-skill-desc">Network security research, vulnerability analysis, and CTF competitions. Developing offensive and defensive skills across cryptography, web exploitation, and reverse engineering.</p>
-          <div class="top-skill-tags"><span>CTF</span><span>Network Sec</span><span>Cryptography</span></div>
-        </div>
-        <div class="top-skill-card reveal">
-          <div class="top-skill-index" aria-hidden="true">02</div>
-          <div class="top-skill-icon" aria-hidden="true">&#x1F427;</div>
-          <h3 class="top-skill-title">Linux &amp; Systems</h3>
-          <p class="top-skill-desc">Deep command-line fluency, shell scripting, and system administration. Daily experience with embedded Linux on Raspberry Pi 4B and bare-metal environments.</p>
-          <div class="top-skill-tags"><span>Bash</span><span>Raspberry Pi</span><span>Embedded</span></div>
-        </div>
-        <div class="top-skill-card reveal">
-          <div class="top-skill-index" aria-hidden="true">03</div>
-          <div class="top-skill-icon" aria-hidden="true">&#x1F4BB;</div>
-          <h3 class="top-skill-title">Programming</h3>
-          <p class="top-skill-desc">Competitive programming and algorithmic problem-solving in C++, Python, and Kotlin. Strong foundations in data structures, discrete math, and logic from years of olympiad participation.</p>
-          <div class="top-skill-tags"><span>C++</span><span>Python</span><span>Algorithms</span></div>
-        </div>
-        <div class="top-skill-card reveal">
-          <div class="top-skill-index" aria-hidden="true">04</div>
-          <div class="top-skill-icon" aria-hidden="true">&#x1F916;</div>
-          <h3 class="top-skill-title">Hardware &amp; Robotics</h3>
-          <p class="top-skill-desc">Hands-on electronics: Arduino programming, soldering, circuit design, and robotics competition with LEGO Mindstorms EV3 &amp; Spike Prime. Drone simulation in DCL and LiftOff.</p>
-          <div class="top-skill-tags"><span>Arduino</span><span>Robotics</span><span>Drones</span></div>
-        </div>
+
+        <article class="skill-card reveal">
+          <div class="skill-card-num" aria-hidden="true">01</div>
+          <div class="skill-card-icon" aria-hidden="true">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3>Cybersecurity</h3>
+          <p>Network security research, vulnerability analysis, and active exploration
+             of offensive and defensive techniques across cryptography, web exploitation,
+             and reverse engineering.</p>
+          <ul class="skill-tags" aria-label="Related skills">
+            <li>Network Security</li>
+            <li>Cryptography</li>
+            <li>Reverse Engineering</li>
+          </ul>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-card-num" aria-hidden="true">02</div>
+          <div class="skill-card-icon" aria-hidden="true">
+            <i class="fa-brands fa-linux"></i>
+          </div>
+          <h3>Linux &amp; Systems</h3>
+          <p>Deep command-line fluency, shell scripting, and system administration.
+             Daily embedded Linux use on Raspberry Pi 4B. Comfortable at the
+             intersection of OS-level programming and hardware.</p>
+          <ul class="skill-tags" aria-label="Related skills">
+            <li>Bash / Shell</li>
+            <li>Raspberry Pi</li>
+            <li>Embedded Systems</li>
+          </ul>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-card-num" aria-hidden="true">03</div>
+          <div class="skill-card-icon" aria-hidden="true">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3>Competitive Programming</h3>
+          <p>Olympiad-level algorithmic problem-solving in C++, Python, and Kotlin.
+             Strong foundations in data structures, discrete mathematics, and
+             computational logic.</p>
+          <ul class="skill-tags" aria-label="Related skills">
+            <li>C++</li>
+            <li>Python</li>
+            <li>Algorithms</li>
+          </ul>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-card-num" aria-hidden="true">04</div>
+          <div class="skill-card-icon" aria-hidden="true">
+            <i class="fa-solid fa-flag"></i>
+          </div>
+          <h3>CTF Competitions</h3>
+          <p>Active Capture the Flag competitor. Applies knowledge across binary
+             exploitation, web challenges, steganography, and OSINT — building
+             a practical security mindset beyond the classroom.</p>
+          <ul class="skill-tags" aria-label="Related skills">
+            <li>Binary Exploitation</li>
+            <li>Web Challenges</li>
+            <li>OSINT</li>
+          </ul>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-card-num" aria-hidden="true">05</div>
+          <div class="skill-card-icon" aria-hidden="true">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3>Leadership &amp; Research</h3>
+          <p>NSRI Program Director at AIS — managing a global research chapter,
+             recruiting students, and coordinating with an international network
+             of researchers, professors, and PhD mentors.</p>
+          <ul class="skill-tags" aria-label="Related skills">
+            <li>Chapter Management</li>
+            <li>Research Methods</li>
+            <li>Mentorship</li>
+          </ul>
+        </article>
+
       </div>
-      <div class="skill-pills reveal" aria-label="Additional skills">
-        <span class="pill">MicroPython</span><span class="pill">Lua</span><span class="pill">Kotlin</span>
-        <span class="pill">Git &amp; GitHub</span><span class="pill">LEGO Spike Prime</span>
-        <span class="pill">WEDO 2.0</span><span class="pill">Building Automation</span>
-        <span class="pill">Drone Operating</span><span class="pill">Soldering</span>
-        <span class="pill">Visual Programming</span><span class="pill">Technical English</span>
-        <span class="pill">Critical Thinking</span><span class="pill">Research Methods</span>
+
+      <!-- Secondary skills -->
+      <div class="pills-wrap reveal" aria-label="Additional technical skills">
+        <span class="pill">Arduino</span>
+        <span class="pill">MicroPython</span>
+        <span class="pill">Lua</span>
+        <span class="pill">Kotlin</span>
+        <span class="pill">Git &amp; GitHub</span>
+        <span class="pill">Raspberry Pi</span>
+        <span class="pill">LEGO Spike Prime</span>
+        <span class="pill">LEGO Mindstorms EV3</span>
+        <span class="pill">WEDO 2.0</span>
+        <span class="pill">Soldering</span>
+        <span class="pill">Drone Operating</span>
+        <span class="pill">Building Automation</span>
+        <span class="pill">Technical English</span>
+        <span class="pill">Critical Thinking</span>
       </div>
     </section>
 
-    <section id="nsri" aria-labelledby="nsri-heading">
+    <!-- ── NSRI ── -->
+    <section id="nsri" aria-labelledby="nsri-h">
       <p class="section-label reveal">Organization</p>
-      <h2 class="section-title reveal" id="nsri-heading">National Student<br /><em>Research Institute</em></h2>
+      <h2 class="section-title reveal" id="nsri-h">
+        National Student<br /><em>Research Institute</em>
+      </h2>
+
       <div class="nsri-banner reveal">
         <img class="nsri-logo" src="assets/nsri-logo.png" alt="NSRI Logo" />
         <div>
-          <h3 class="nsri-banner-title">Global Research Pipeline for Students</h3>
-          <p class="nsri-banner-desc">NSRI connects high school students, undergraduates, and PhD-level mentors into one structured system for producing real, publishable research. Founded by a student affiliated with MIT Critical Data — because most students don&rsquo;t lack ability, they lack access.</p>
+          <h3>Global Research Pipeline for Students</h3>
+          <p>NSRI connects high school students, undergraduates, and PhD-level mentors
+             into one structured system for producing real, publishable research.
+             Founded by a student affiliated with MIT Critical Data — because most
+             students don't lack ability, they lack access.</p>
         </div>
       </div>
-      <div class="nsri-stats-grid" aria-label="NSRI statistics">
-        <div class="nsri-stat-card reveal"><span class="nsri-stat-number">152+</span><span class="nsri-stat-label">Active Chapters</span></div>
-        <div class="nsri-stat-card reveal"><span class="nsri-stat-number">93+</span><span class="nsri-stat-label">Countries</span></div>
-        <div class="nsri-stat-card reveal"><span class="nsri-stat-number">3,584</span><span class="nsri-stat-label">Active Researchers</span></div>
-        <div class="nsri-stat-card reveal"><span class="nsri-stat-number">64</span><span class="nsri-stat-label">Papers Published</span></div>
-        <div class="nsri-stat-card reveal"><span class="nsri-stat-number">456+</span><span class="nsri-stat-label">Professors Involved</span></div>
-        <div class="nsri-stat-card reveal"><span class="nsri-stat-number">$10K</span><span class="nsri-stat-label">Research Prize (May)</span></div>
-        <div class="nsri-stat-card reveal"><span class="nsri-stat-number">102</span><span class="nsri-stat-label">Active Research Groups</span></div>
-        <div class="nsri-stat-card reveal"><span class="nsri-stat-number">649K</span><span class="nsri-stat-label">Total Impressions</span></div>
+
+      <div class="nsri-stats" aria-label="NSRI by the numbers">
+        <div class="nsri-stat reveal"><span class="nsri-n">152+</span><span class="nsri-l">Active Chapters</span></div>
+        <div class="nsri-stat reveal"><span class="nsri-n">93+</span><span class="nsri-l">Countries</span></div>
+        <div class="nsri-stat reveal"><span class="nsri-n">3,584</span><span class="nsri-l">Active Researchers</span></div>
+        <div class="nsri-stat reveal"><span class="nsri-n">64</span><span class="nsri-l">Papers Published</span></div>
+        <div class="nsri-stat reveal"><span class="nsri-n">456+</span><span class="nsri-l">Professors Involved</span></div>
+        <div class="nsri-stat reveal"><span class="nsri-n">$10K</span><span class="nsri-l">Research Prize</span></div>
+        <div class="nsri-stat reveal"><span class="nsri-n">102</span><span class="nsri-l">Research Groups</span></div>
+        <div class="nsri-stat reveal"><span class="nsri-n">649K</span><span class="nsri-l">Total Impressions</span></div>
       </div>
-      <p class="section-label reveal" style="margin-top:2rem;">Research Pathways</p>
-      <h3 class="section-title reveal" style="font-size:1.9rem;">Two ways to <em>participate</em></h3>
-      <div class="pathways-grid">
-        <article class="pathway-card reveal">
-          <div class="pathway-number" aria-hidden="true">01</div>
-          <h4 class="pathway-title">NSRI Lead Researcher</h4>
-          <p class="pathway-desc">Lead a team of up to 5 members through a full research project to publication. Designed for students with prior publications or a major research award. Undergraduate level and above recommended.</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSezapg1YiCcaqrcuVrLbxasBxS7BJpmK6zgsuKgQzZscGQoQg/viewform?usp=header" class="pathway-link" target="_blank" rel="noopener noreferrer">Apply as Lead Researcher &rarr;</a>
-        </article>
-        <article class="pathway-card reveal">
-          <div class="pathway-number" aria-hidden="true">02</div>
-          <h4 class="pathway-title">NSRI Researcher</h4>
-          <p class="pathway-desc">Join an existing research team and work toward publication. Open to high school students. No prior experience required — proof of action matters more than background.</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRpaV17WwNGAAy86FF9VFYrpmZ_yRSQEMISS_Uq5lRHS1fow/viewform?usp=header" class="pathway-link" target="_blank" rel="noopener noreferrer">Apply as Researcher &rarr;</a>
-        </article>
+
+      <div class="pathways">
+        <p class="section-label reveal">Research Pathways</p>
+        <h3 class="section-title reveal" style="font-size:clamp(1.6rem,2.5vw,2.2rem)">
+          Two ways to <em>participate</em>
+        </h3>
+
+        <div class="pathways-grid">
+          <article class="pathway-card reveal">
+            <div class="pathway-num" aria-hidden="true">01</div>
+            <h4>NSRI Lead Researcher</h4>
+            <p>Lead a team of up to five members through a full research project to
+               publication. Designed for students with prior publications or a major
+               research award. Undergraduate level and above recommended.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSezapg1YiCcaqrcuVrLbxasBxS7BJpmK6zgsuKgQzZscGQoQg/viewform?usp=header"
+               class="text-link" target="_blank" rel="noopener noreferrer">
+              Apply as Lead Researcher <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="pathway-card reveal">
+            <div class="pathway-num" aria-hidden="true">02</div>
+            <h4>NSRI Researcher</h4>
+            <p>Join an existing research team and work toward publication. Open to
+               high school students — no prior experience required. Proof of action
+               matters more than background.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRpaV17WwNGAAy86FF9VFYrpmZ_yRSQEMISS_Uq5lRHS1fow/viewform?usp=header"
+               class="text-link" target="_blank" rel="noopener noreferrer">
+              Apply as Researcher <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
       </div>
-      <div class="nsri-role-box reveal">
-        <p class="section-label">Aruzhan&rsquo;s NSRI Role</p>
-        <p class="nsri-role-text">Aruzhan was accepted into NSRI as a <strong>School Ambassador</strong> on January 17, 2026, and promoted to <strong>Program Director</strong> on March 2, 2026 — one of the fastest progressions in the program. As Director at AIS, she is responsible for building and managing the school&rsquo;s NSRI chapter, recruiting students into the global research pipeline, and serving as the primary bridge between AIS Aktobe and the worldwide NSRI network.</p>
+
+      <div class="role-box reveal">
+        <p class="section-label">Aruzhan's Role</p>
+        <p class="body-text">
+          Accepted as <strong>School Ambassador</strong> on January 17, 2026 and promoted
+          to <strong>Program Director</strong> on March 2, 2026 — one of the fastest
+          progressions in NSRI's history. As Director at AIS, Aruzhan builds and manages
+          the school's chapter, recruits students into the global research pipeline, and
+          serves as the primary bridge between AIS Aktobe and NSRI's worldwide network of
+          152+ chapters across 93+ countries.
+        </p>
       </div>
     </section>
 
-    <section id="education" aria-labelledby="education-heading">
+    <!-- ── EDUCATION ── -->
+    <section id="education" aria-labelledby="edu-h">
       <p class="section-label reveal">Background</p>
-      <h2 class="section-title reveal" id="education-heading">Academic <em>Journey</em></h2>
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <p class="timeline-year">March 2, 2026 — Present</p>
-          <h3 class="timeline-title">NSRI Program Director</h3>
-          <p class="timeline-sub">National Student Research Institute · AIS Chapter</p>
-          <p class="timeline-desc">Promoted to Director after rapid progress as Ambassador. Responsible for chapter development, student recruitment, and coordination with the global NSRI network of 152+ chapters in 93+ countries.</p>
-        </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <p class="timeline-year">January 17, 2026</p>
-          <h3 class="timeline-title">Accepted as NSRI School Ambassador</h3>
-          <p class="timeline-sub">National Student Research Institute · Global Program</p>
-          <p class="timeline-desc">Joined a global cohort of school ambassadors. Assigned a mentor and began building NSRI presence at AIS, Aktobe.</p>
-        </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <p class="timeline-year">January 2025 — May 2027</p>
-          <h3 class="timeline-title">Aqbobek International School (AIS)</h3>
-          <p class="timeline-sub">Aktobe, Kazakhstan · Grades 9–11</p>
-          <p class="timeline-desc">Public speaking, electrical engineering with Arduino, embedded software development, and drone simulator competitions (DCL: The Game, LiftOff).</p>
-        </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-dot" aria-hidden="true"></div>
-          <p class="timeline-year">September 2016 — December 2025</p>
-          <h3 class="timeline-title">Secondary School-Gymnasium No. 32</h3>
-          <p class="timeline-sub">Named after M. Kurmangaliyeva · Aktobe · Grades 1–9</p>
-          <p class="timeline-desc">Debate Club, Robotics (LEGO EV3, Spike Prime, WEDO 2.0), and Programming Olympiads. Nine years building a foundation in competitive programming and technology.</p>
-        </div>
-      </div>
+      <h2 class="section-title reveal" id="edu-h">Academic <em>Journey</em></h2>
+
+      <ol class="timeline" reversed>
+
+        <li class="timeline-item reveal">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <p class="tl-year">March 2, 2026 — Present</p>
+          <h3 class="tl-title">NSRI Program Director</h3>
+          <p class="tl-org">National Student Research Institute · AIS Chapter</p>
+          <p class="tl-desc">Promoted to Director after rapid progress as Ambassador.
+             Responsible for chapter development, student recruitment, and coordination
+             with the global NSRI network spanning 93+ countries.</p>
+        </li>
+
+        <li class="timeline-item reveal">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <p class="tl-year">January 17, 2026</p>
+          <h3 class="tl-title">Accepted as NSRI School Ambassador</h3>
+          <p class="tl-org">National Student Research Institute · Global Program</p>
+          <p class="tl-desc">Joined a global cohort of school ambassadors representing
+             institutions across multiple countries. Assigned a mentor and began building
+             NSRI presence at AIS, Aktobe.</p>
+        </li>
+
+        <li class="timeline-item reveal">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <p class="tl-year">January 2025 — May 2027</p>
+          <h3 class="tl-title">Aqbobek International School (AIS)</h3>
+          <p class="tl-org">Aktobe, Kazakhstan · Grades 9–11</p>
+          <p class="tl-desc">Public speaking, electrical engineering with Arduino,
+             embedded software development, and drone simulator competitions
+             (DCL: The Game, LiftOff).</p>
+        </li>
+
+        <li class="timeline-item reveal">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <p class="tl-year">September 2016 — December 2025</p>
+          <h3 class="tl-title">Secondary School-Gymnasium No. 32</h3>
+          <p class="tl-org">Named after M. Kurmangaliyeva · Aktobe · Grades 1–9</p>
+          <p class="tl-desc">Debate Club, Robotics (LEGO EV3, Spike Prime, WEDO 2.0),
+             and Programming Olympiads. Nine years building foundations in competitive
+             programming and technology.</p>
+        </li>
+
+      </ol>
     </section>
 
-    <section id="goals" aria-labelledby="goals-heading">
+    <!-- ── GOALS ── -->
+    <section id="goals" aria-labelledby="goals-h">
       <p class="section-label reveal">Looking Ahead</p>
-      <h2 class="section-title reveal" id="goals-heading">Academic Goals <em>by 2027</em></h2>
-      <p class="section-body reveal">With a clear vision for her future, Aruzhan is systematically working toward university admission abroad — targeting MIT for Cybersecurity.</p>
+      <h2 class="section-title reveal" id="goals-h">Academic Goals <em>by 2027</em></h2>
+      <p class="body-text reveal" style="max-width:680px;">
+        Systematically working toward university admission abroad — targeting MIT
+        for Cybersecurity.
+      </p>
+
       <div class="goals-grid">
-        <article class="goal-card reveal"><div class="goal-icon" aria-hidden="true">&#x1F393;</div><div class="goal-body"><h3>MIT — Dream University</h3><p>Targeting Massachusetts Institute of Technology for Cybersecurity. Actively building every component of a competitive international application.</p></div></article>
-        <article class="goal-card reveal"><div class="goal-icon" aria-hidden="true">&#x1F4DD;</div><div class="goal-body"><h3>IELTS Score: 7.5+</h3><p>Target by end of 2027. Currently fluent in English, Russian, and Kazakh — pursuing academic-level certification.</p></div></article>
-        <article class="goal-card reveal"><div class="goal-icon" aria-hidden="true">&#x1F4CA;</div><div class="goal-body"><h3>SAT Score: 1500+</h3><p>Aiming for 1500+ on the SAT by 2027, building on a strong foundation in mathematics and informatics.</p></div></article>
-        <article class="goal-card reveal"><div class="goal-icon" aria-hidden="true">&#x1F4C1;</div><div class="goal-body"><h3>Strong Research Portfolio</h3><p>Developing a portfolio through NSRI research, CTF competitions, robotics, and programming olympiads.</p></div></article>
-        <article class="goal-card reveal"><div class="goal-icon" aria-hidden="true">&#x2709;&#xFE0F;</div><div class="goal-body"><h3>Motivation Letter</h3><p>Preparing a compelling motivation letter for admissions — telling the authentic story of a young researcher from Kazakhstan.</p></div></article>
-        <article class="goal-card reveal"><div class="goal-icon" aria-hidden="true">&#x1F52C;</div><div class="goal-body"><h3>Published Research</h3><p>Working within NSRI to contribute to real research groups, aiming for publication before graduation.</p></div></article>
+
+        <article class="goal-card reveal">
+          <div class="goal-icon" aria-hidden="true">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+          <div>
+            <h3>MIT — Dream University</h3>
+            <p>Targeting Massachusetts Institute of Technology for Cybersecurity.
+               Actively building every component of a competitive international
+               application.</p>
+          </div>
+        </article>
+
+        <article class="goal-card reveal">
+          <div class="goal-icon" aria-hidden="true">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <div>
+            <h3>IELTS Score: 7.5+</h3>
+            <p>Target by end of 2027. Currently fluent in English, Russian,
+               and Kazakh — pursuing academic-level certification.</p>
+          </div>
+        </article>
+
+        <article class="goal-card reveal">
+          <div class="goal-icon" aria-hidden="true">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div>
+            <h3>SAT Score: 1500+</h3>
+            <p>Aiming for 1500+ by 2027, building on a strong foundation
+               in mathematics and informatics — her specialized subjects.</p>
+          </div>
+        </article>
+
+        <article class="goal-card reveal">
+          <div class="goal-icon" aria-hidden="true">
+            <i class="fa-solid fa-folder-open"></i>
+          </div>
+          <div>
+            <h3>Research Portfolio</h3>
+            <p>Developing a portfolio through NSRI research, CTF competitions,
+               robotics, and programming olympiads to demonstrate real-world
+               impact.</p>
+          </div>
+        </article>
+
+        <article class="goal-card reveal">
+          <div class="goal-icon" aria-hidden="true">
+            <i class="fa-regular fa-file-lines"></i>
+          </div>
+          <div>
+            <h3>Motivation Letter</h3>
+            <p>Preparing a compelling admissions essay — telling the authentic
+               story of a young researcher from Kazakhstan.</p>
+          </div>
+        </article>
+
+        <article class="goal-card reveal">
+          <div class="goal-icon" aria-hidden="true">
+            <i class="fa-solid fa-microscope"></i>
+          </div>
+          <div>
+            <h3>Published Research</h3>
+            <p>Working within NSRI to contribute to real research groups,
+               aiming for a publication before graduation.</p>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section id="join" aria-labelledby="join-heading">
+    <!-- ── JOIN ── -->
+    <section id="join" aria-labelledby="join-h">
       <p class="section-label reveal">Get Involved</p>
-      <h2 class="section-title reveal" id="join-heading">Join the NSRI<br /><em>Research Pipeline</em></h2>
-      <p class="join-desc reveal">Are you a student at AIS or curious about research? NSRI is free, global, and designed for students exactly like you. No prior experience needed — just the will to start.</p>
-      <div class="join-links" aria-label="NSRI links">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRpaV17WwNGAAy86FF9VFYrpmZ_yRSQEMISS_Uq5lRHS1fow/viewform?usp=header" class="link-card reveal" target="_blank" rel="noopener noreferrer"><span class="link-card-icon" aria-hidden="true">&#x1F4CB;</span><span class="link-card-title">Apply as Researcher</span><span class="link-card-desc">High school students welcome</span></a>
-        <a href="https://www.linkedin.com/company/nsri-official/" class="link-card reveal" target="_blank" rel="noopener noreferrer"><span class="link-card-icon" aria-hidden="true">&#x1F4BC;</span><span class="link-card-title">NSRI LinkedIn</span><span class="link-card-desc">Follow NSRI Official</span></a>
-        <a href="https://discord.gg/DZ9FwNYSeJ" class="link-card reveal" target="_blank" rel="noopener noreferrer"><span class="link-card-icon" aria-hidden="true">&#x1F4AC;</span><span class="link-card-title">Discord</span><span class="link-card-desc">Join the community</span></a>
-        <a href="https://docs.google.com/document/d/1-sbIHMXYCO7OlAOu-e2Q4U62QWQkMR-JnDsBTpP10LA/edit" class="link-card reveal" target="_blank" rel="noopener noreferrer"><span class="link-card-icon" aria-hidden="true">&#x1F4D6;</span><span class="link-card-title">Chapter Guide</span><span class="link-card-desc">Start a chapter at your school</span></a>
+      <h2 class="section-title reveal" id="join-h">
+        Join the NSRI<br /><em>Research Pipeline</em>
+      </h2>
+      <p class="body-text reveal join-intro">
+        Are you a student at AIS or curious about research? NSRI is free, global,
+        and designed for students exactly like you. No prior experience needed —
+        just the will to start.
+      </p>
+
+      <div class="join-grid">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRpaV17WwNGAAy86FF9VFYrpmZ_yRSQEMISS_Uq5lRHS1fow/viewform?usp=header"
+           class="join-card reveal" target="_blank" rel="noopener noreferrer">
+          <i class="fa-regular fa-clipboard" aria-hidden="true"></i>
+          <strong>Apply as Researcher</strong>
+          <span>High school students welcome</span>
+        </a>
+        <a href="https://www.linkedin.com/company/nsri-official/"
+           class="join-card reveal" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+          <strong>NSRI LinkedIn</strong>
+          <span>Follow NSRI Official</span>
+        </a>
+        <a href="https://discord.gg/DZ9FwNYSeJ"
+           class="join-card reveal" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-discord" aria-hidden="true"></i>
+          <strong>Discord</strong>
+          <span>Join the community</span>
+        </a>
+        <a href="https://docs.google.com/document/d/1-sbIHMXYCO7OlAOu-e2Q4U62QWQkMR-JnDsBTpP10LA/edit"
+           class="join-card reveal" target="_blank" rel="noopener noreferrer">
+          <i class="fa-regular fa-book-open" aria-hidden="true"></i>
+          <strong>Chapter Guide</strong>
+          <span>Start a chapter at your school</span>
+        </a>
       </div>
-      <div class="quote-block reveal">
-        <p class="quote-text">Most students aren&rsquo;t missing ability — they&rsquo;re missing access. NSRI is here to fix that.</p>
-        <p class="quote-attr">— Minwoo (Brian) Kang, Founder &amp; President, NSRI · MIT Critical Data</p>
-      </div>
+
+      <blockquote class="quote-block reveal">
+        <p>"Most students aren't missing ability — they're missing access.
+           NSRI is here to fix that."</p>
+        <cite>— Minwoo (Brian) Kang, Founder &amp; President, NSRI · MIT Critical Data</cite>
+      </blockquote>
     </section>
 
-    <section id="contacts" aria-labelledby="contacts-heading">
+    <!-- ── CONTACTS ── -->
+    <section id="contacts" aria-labelledby="contacts-h">
       <p class="section-label reveal">Connect</p>
-      <h2 class="section-title reveal" id="contacts-heading">Get in <em>Touch</em></h2>
-      <p class="section-body reveal">Whether you&rsquo;re interested in NSRI, want to collaborate, or simply want to connect — reach out through any of the channels below.</p>
-      <div class="contacts-grid" aria-label="Contact links">
-        <a href="mailto:aruzhanmaratova2009@gmail.com" class="contact-card reveal" aria-label="Send email"><div class="contact-icon" aria-hidden="true">&#x2709;&#xFE0F;</div><div><p class="contact-platform">Email</p><p class="contact-handle">aruzhanmaratova2009@gmail.com</p><p class="contact-note">Personal · fastest response</p></div></a>
-        <a href="https://github.com/herachxx" class="contact-card reveal" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><div class="contact-icon" aria-hidden="true">&#x1F4BB;</div><div><p class="contact-platform">GitHub</p><p class="contact-handle">@herachxx</p><p class="contact-note">Projects &amp; portfolio</p></div></a>
-        <a href="https://www.linkedin.com/in/aruzhan-maratova-or-herachxx/" class="contact-card reveal" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><div class="contact-icon" aria-hidden="true">&#x1F4BC;</div><div><p class="contact-platform">LinkedIn</p><p class="contact-handle">aruzhan-maratova-or-herachxx</p><p class="contact-note">Write-ups &amp; portfolio</p></div></a>
-        <a href="https://www.instagram.com/herachxx/" class="contact-card reveal" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile"><div class="contact-icon" aria-hidden="true">&#x1F4F8;</div><div><p class="contact-platform">Instagram</p><p class="contact-handle">@herachxx</p><p class="contact-note">Personal</p></div></a>
-        <a href="https://www.youtube.com/@herachxx" class="contact-card reveal" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel"><div class="contact-icon" aria-hidden="true">&#x25B6;&#xFE0F;</div><div><p class="contact-platform">YouTube</p><p class="contact-handle">@herachxx</p><p class="contact-note">Blog, videos &amp; portfolio</p></div></a>
+      <h2 class="section-title reveal" id="contacts-h">Get in <em>Touch</em></h2>
+      <p class="body-text reveal" style="max-width:560px;">
+        Whether you're interested in NSRI, want to collaborate, or simply want to
+        connect — reach out through any of the channels below.
+      </p>
+
+      <div class="contacts-grid">
+
+        <a href="mailto:aruzhanmaratova2009@gmail.com"
+           class="contact-card reveal" aria-label="Email Aruzhan">
+          <div class="contact-icon" aria-hidden="true">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">aruzhanmaratova2009@gmail.com</span>
+            <span class="contact-note">Personal · fastest response</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/herachxx"
+           class="contact-card reveal" target="_blank" rel="noopener noreferrer"
+           aria-label="GitHub profile">
+          <div class="contact-icon" aria-hidden="true">
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">@herachxx</span>
+            <span class="contact-note">Projects &amp; portfolio</span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/aruzhan-maratova-or-herachxx/"
+           class="contact-card reveal" target="_blank" rel="noopener noreferrer"
+           aria-label="LinkedIn profile">
+          <div class="contact-icon" aria-hidden="true">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">aruzhan-maratova-or-herachxx</span>
+            <span class="contact-note">Write-ups &amp; portfolio</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/herachxx/"
+           class="contact-card reveal" target="_blank" rel="noopener noreferrer"
+           aria-label="Instagram profile">
+          <div class="contact-icon" aria-hidden="true">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">Instagram</span>
+            <span class="contact-value">@herachxx</span>
+            <span class="contact-note">Personal</span>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/@herachxx"
+           class="contact-card reveal" target="_blank" rel="noopener noreferrer"
+           aria-label="YouTube channel">
+          <div class="contact-icon" aria-hidden="true">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">YouTube</span>
+            <span class="contact-value">@herachxx</span>
+            <span class="contact-note">Blog, videos &amp; portfolio</span>
+          </div>
+        </a>
+
       </div>
     </section>
 
+    <!-- ── FOOTER ── -->
     <footer>
-      <div class="footer-left"><strong>Maratova Aruzhan</strong><br />NSRI Program Director · AIS, Aktobe, Kazakhstan<br />Grade 10 · Class of 2027 · UTC+5</div>
-      <div class="footer-center" aria-label="Social links">
-        <a href="https://github.com/herachxx" class="footer-social" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">&#x1F4BB;</a>
-        <a href="https://www.linkedin.com/in/aruzhan-maratova-or-herachxx/" class="footer-social" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">&#x1F4BC;</a>
-        <a href="https://www.instagram.com/herachxx/" class="footer-social" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">&#x1F4F8;</a>
-        <a href="https://www.youtube.com/@herachxx" class="footer-social" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="YouTube">&#x25B6;&#xFE0F;</a>
-        <a href="mailto:aruzhanmaratova2009@gmail.com" class="footer-social" title="Email" aria-label="Email">&#x2709;&#xFE0F;</a>
+      <div class="footer-left">
+        <strong>Maratova Aruzhan</strong>
+        <span>NSRI Program Director · AIS, Aktobe, Kazakhstan</span>
+        <span>Grade 10 · Class of 2027 · UTC+5</span>
       </div>
-      <div class="footer-right">National Student Research Institute<br />linkedin.com/company/nsri-official<br />&copy; 2026 Aruzhan Maratova</div>
+
+      <div class="footer-social" aria-label="Social links">
+        <a href="https://github.com/herachxx"                               target="_blank" rel="noopener noreferrer" aria-label="GitHub"   title="GitHub"  ><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/aruzhan-maratova-or-herachxx/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/herachxx/"                       target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@herachxx"                         target="_blank" rel="noopener noreferrer" aria-label="YouTube"  title="YouTube" ><i class="fa-brands fa-youtube"></i></a>
+        <a href="mailto:aruzhanmaratova2009@gmail.com"                       aria-label="Email" title="Email"><i class="fa-regular fa-envelope"></i></a>
+      </div>
+
+      <div class="footer-right">
+        <span>National Student Research Institute</span>
+        <span>linkedin.com/company/nsri-official</span>
+        <span>&copy; 2026 Aruzhan Maratova</span>
+      </div>
     </footer>
-  </div>
+
+  </div><!-- /.site-wrap -->
+
   <script src="app.js"></script>
 </body>
 </html>
