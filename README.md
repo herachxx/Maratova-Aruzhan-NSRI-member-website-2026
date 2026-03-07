@@ -3,12 +3,17 @@
 ## Project Structure  
 
 ```
-nsri-site/
-├── index.html          # Main website (single-page)
+nsri-portfolio/
+│
+├── index.html
+├── css/styles.css
+├── js/app.js
+│
 ├── assets/
-│   ├── aruzhan.jpeg    # Profile photo
-│   └── nsri-logo.png   # NSRI official logo
-└── README.md           # This file
+│   ├── aruzhan.jpeg
+│   └── nsri-logo.png
+│
+└── README.md
 ```
 
 ## How to Use  
