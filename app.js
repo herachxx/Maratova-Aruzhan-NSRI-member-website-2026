@@ -1,289 +1,243 @@
 'use strict';
 
-/* ─── Helpers ─── */
-const $  = id  => document.getElementById(id);
-const qs = sel => document.querySelector(sel);
-const qa = sel => [...document.querySelectorAll(sel)];
+const $ = id => document.getElementById(id);
+const $$ = sel => [...document.querySelectorAll(sel)];
 
+/* progress bar */
+function initProgress() {
+  const bar = $('prog');
+  if (!bar) return;
+  const update = () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0';
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
 
-/* ─────────────────────────────────────────────
-   SIDE NAV
-   Opens automatically. Toggle on button click.
-   Desktop: shifts .site-wrap right.
-   Mobile:  slides over content.
-───────────────────────────────────────────── */
+/* side nav */
 function initNav() {
-  const trigger  = $('nav-trigger');
-  const nav      = $('side-nav');
-  const wrap     = $('site-wrap');
+  const btn   = $('nav-btn');
+  const nav   = $('sidenav');
+  const wrap  = $('wrap');
+  const close = $('sn-close');
+  if (!btn || !nav) return;
 
-  if (!trigger || !nav) return;
+  const isWide = () => window.innerWidth >= 900;
+  let open = false;
 
-  // Helper: are we on desktop?
-  const isDesktop = () => window.innerWidth > 900;
-
-  // Apply open state to all relevant elements
-  function applyOpen() {
-    trigger.classList.add('open');
-    nav.classList.add('open');
-    trigger.setAttribute('aria-expanded', 'true');
-    if (isDesktop()) wrap?.classList.add('open');
+  function openNav() {
+    open = true;
+    nav.classList.add('is-open');
+    btn.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+    if (isWide()) wrap?.classList.add('is-pushed');
+  }
+  function closeNav() {
+    open = false;
+    nav.classList.remove('is-open');
+    btn.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    wrap?.classList.remove('is-pushed');
   }
 
-  function applyClose() {
-    trigger.classList.remove('open');
-    nav.classList.remove('open');
-    trigger.setAttribute('aria-expanded', 'false');
-    wrap?.classList.remove('open');
-  }
+  // auto-open on desktop
+  if (isWide()) openNav();
 
-  // Open on load (body has class nav-is-open from HTML — just sync JS state)
-  let isOpen = true;
-  applyOpen();
+  btn.addEventListener('click', () => open ? closeNav() : openNav());
+  close?.addEventListener('click', closeNav);
 
-  // Toggle on button click
-  trigger.addEventListener('click', () => {
-    isOpen = !isOpen;
-    isOpen ? applyOpen() : applyClose();
+  // close on link click (mobile)
+  $$('.sn-nav a').forEach(a => a.addEventListener('click', () => {
+    if (!isWide()) closeNav();
+  }));
+
+  // escape / outside click
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && open) closeNav(); });
+  document.addEventListener('click', e => {
+    if (!isWide() && open && !nav.contains(e.target) && !btn.contains(e.target)) closeNav();
   });
 
-  // Close when clicking a nav link
-  qa('.side-nav-links a').forEach(a => {
-    a.addEventListener('click', () => {
-      // On mobile, close after navigating
-      if (!isDesktop()) {
-        isOpen = false;
-        applyClose();
-      }
-    });
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && isOpen) {
-      isOpen = false;
-      applyClose();
-    }
-  });
-
-  // On resize: if shrinking to mobile, remove push; if expanding to desktop, restore
   window.addEventListener('resize', () => {
-    if (isOpen) {
-      if (isDesktop()) wrap?.classList.add('open');
-      else             wrap?.classList.remove('open');
-    }
+    if (open && isWide()) wrap?.classList.add('is-pushed');
+    else if (!isWide()) wrap?.classList.remove('is-pushed');
   }, { passive: true });
 }
 
-
-/* ─────────────────────────────────────────────
-   SCROLL PROGRESS BAR
-───────────────────────────────────────────── */
-function initScrollProgress() {
-  const bar = $('progress-bar');
-  if (!bar) return;
-
-  function update() {
-    const scrolled = window.scrollY;
-    const total    = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = total > 0 ? `${(scrolled / total) * 100}%` : '0%';
-  }
-
-  window.addEventListener('scroll', update, { passive: true });
-  update();
-}
-
-
-/* ─────────────────────────────────────────────
-   ACTIVE NAV LINK
-───────────────────────────────────────────── */
+/* active nav link highlight */
 function initActiveLink() {
-  const sections = qa('section[id]');
-  const links    = qa('.side-nav-links a');
+  const links = $$('.sn-nav a[href^="#"]');
   if (!links.length) return;
-
-  function update() {
-    let current = '';
-    sections.forEach(sec => {
-      if (window.scrollY >= sec.offsetTop - 180) current = sec.id;
-    });
-    links.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
-  }
-
-  window.addEventListener('scroll', update, { passive: true });
-  update();
-}
-
-
-/* ─────────────────────────────────────────────
-   SCROLL REVEAL
-   Elements with class="reveal" fade up as they
-   enter the viewport.
-───────────────────────────────────────────── */
-function initReveal() {
-  const els = qa('.reveal');
-  if (!els.length) return;
-
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
+        links.forEach(l => l.classList.remove('active'));
+        const match = links.find(l => l.getAttribute('href') === '#' + e.target.id);
+        if (match) match.classList.add('active');
       }
-    }),
-    { threshold: 0.1, rootMargin: '0px 0px -44px 0px' }
-  );
-
-  els.forEach(el => observer.observe(el));
+    });
+  }, { threshold: 0.3 });
+  $$('section[id]').forEach(s => obs.observe(s));
 }
 
-
-/* ─────────────────────────────────────────────
-   STAGGER — add delay to card groups
-───────────────────────────────────────────── */
-function initStagger() {
-  const groups = [
-    '.about-right .card',
-    '.top-skills .skill-card',
-    '.nsri-stats .nsri-stat',
-    '.goals-grid .goal-card',
-    '.contacts-grid .contact-card',
-    '.join-grid .join-card',
-    '.pathways-grid .pathway-card',
-    '.timeline .timeline-item',
-  ];
-
-  groups.forEach(selector => {
-    qa(selector).forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
+/* scroll reveal */
+function initReveal() {
+  const items = $$('.reveal');
+  if (!items.length) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
     });
+  }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+  items.forEach(el => obs.observe(el));
+}
+
+/* stagger delays */
+function initStagger() {
+  [
+    '.skill-cards .skill-card',
+    '.ach-grid .ach-card',
+    '.cert-strip .cert-card',
+    '.nsri-stats .ns',
+    '.goals .goal',
+    '.contacts .ccard',
+    '.hobbies .hobby',
+    '.masonry .gitem',
+  ].forEach(sel => {
+    $$(sel).forEach((el, i) => { el.style.transitionDelay = (i * 0.06) + 's'; });
   });
 }
 
-
-/* ─────────────────────────────────────────────
-   SMOOTH SCROLL
-───────────────────────────────────────────── */
+/* smooth scroll */
 function initSmoothScroll() {
-  qa('a[href^="#"]').forEach(a => {
+  $$('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href').slice(1);
       if (!id) return;
       const target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
-      const offset = target.getBoundingClientRect().top + window.scrollY - 28;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 18, behavior: 'smooth' });
     });
   });
 }
 
-
-/* ─────────────────────────────────────────────
-   STAT COUNTERS
-   Counts up numbers when they scroll into view.
-───────────────────────────────────────────── */
-function parseValue(text) {
-  const s = text.replace(/[$,+]/g, '').trim();
-  if (s.endsWith('K')) return parseFloat(s) * 1000;
-  return parseFloat(s) || null;
-}
-
-function formatValue(original, value) {
-  const rounded = Math.round(value);
-  let out = '';
-  if (original.includes('$')) out += '$';
-  if (original.includes('K') && value >= 1000) {
-    out += (value / 1000).toFixed(0) + 'K';
-  } else if (original.includes(',')) {
-    out += rounded.toLocaleString();
-  } else {
-    out += rounded.toString();
-  }
-  if (original.includes('+')) out += '+';
-  return out;
-}
-
-function animateCounter(el) {
-  const original = el.textContent.trim();
-  const target   = parseValue(original);
-  if (!target) return;
-
-  const duration = 1400;
-  const start    = performance.now();
-
-  function step(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased    = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-    el.textContent = formatValue(original, eased * target);
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    } else {
-      el.textContent = original; // restore exact string
-    }
-  }
-
+/* counter animation */
+function countUp(el) {
+  const raw = el.textContent.trim();
+  const val = parseFloat(raw.replace(/[^0-9.]/g, ''));
+  if (isNaN(val)) return;
+  const dur = 1100;
+  const start = performance.now();
+  const step = now => {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const cur = Math.round(ease * val);
+    // reconstruct original format
+    let out = '';
+    if (raw.startsWith('$')) out += '$';
+    if (raw.includes(',')) out += cur.toLocaleString();
+    else out += cur;
+    if (raw.includes('+')) out += '+';
+    if (raw.includes('K')) out += 'K';
+    el.textContent = out;
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = raw; // restore exact original
+  };
   requestAnimationFrame(step);
 }
 
 function initCounters() {
-  const els = qa('.stat-n, .nsri-n');
+  const els = $$('.stat-n, .ns-n');
   if (!els.length) return;
-
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateCounter(e.target);
-        observer.unobserve(e.target);
-      }
-    }),
-    { threshold: 0.6 }
-  );
-
-  els.forEach(el => observer.observe(el));
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); obs.unobserve(e.target); } });
+  }, { threshold: 0.6 });
+  els.forEach(el => obs.observe(el));
 }
 
-
-/* ─────────────────────────────────────────────
-   PHOTO PARALLAX (desktop only)
-───────────────────────────────────────────── */
+/* portrait parallax (desktop only) */
 function initParallax() {
-  const photo = qs('.photo-wrap');
-  if (!photo || window.matchMedia('(max-width: 900px)').matches) return;
-
-  let rafPending = false;
-
+  const el = $('portrait');
+  if (!el || window.innerWidth < 900) return;
+  let raf = false;
   document.addEventListener('mousemove', e => {
-    if (rafPending) return;
-    rafPending = true;
+    if (raf) return;
+    raf = true;
     requestAnimationFrame(() => {
       const rx = (e.clientX / window.innerWidth  - 0.5) * 2;
       const ry = (e.clientY / window.innerHeight - 0.5) * 2;
-      photo.style.transform = `perspective(800px) rotateY(${rx * 3}deg) rotateX(${-ry * 2.2}deg)`;
-      rafPending = false;
+      el.style.transform = `perspective(800px) rotateY(${rx * 2.8}deg) rotateX(${-ry * 1.9}deg)`;
+      raf = false;
     });
   });
-
   document.addEventListener('mouseleave', () => {
-    photo.style.transition = 'transform 0.55s ease';
-    photo.style.transform  = '';
-    setTimeout(() => { photo.style.transition = ''; }, 600);
+    el.style.transition = 'transform .5s ease';
+    el.style.transform = '';
+    setTimeout(() => { el.style.transition = ''; }, 520);
   });
 }
 
+/* gallery lightbox */
+function initLightbox() {
+  const lb    = $('lb');
+  const panel = $('lb-content');
+  const close = $('lb-close');
+  if (!lb) return;
 
-/* ─────────────────────────────────────────────
-   INIT — run on DOM ready
-───────────────────────────────────────────── */
+  function open(src, isVideo) {
+    panel.innerHTML = '';
+    const el = document.createElement(isVideo ? 'video' : 'img');
+    el.src = src;
+    if (isVideo) { el.controls = true; el.autoplay = true; }
+    el.alt = '';
+    panel.appendChild(el);
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function shut() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    const v = panel.querySelector('video');
+    if (v) v.pause();
+    setTimeout(() => { panel.innerHTML = ''; }, 280);
+  }
+
+  $$('.gitem').forEach(item => {
+    item.addEventListener('click', () => {
+      const vs = item.querySelector('video source');
+      const img = item.querySelector('img');
+      if (vs) open(vs.src, true);
+      else if (img) open(img.src, false);
+    });
+    item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') item.click(); });
+  });
+
+  close?.addEventListener('click', shut);
+  lb.addEventListener('click', e => { if (e.target === lb) shut(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) shut(); });
+}
+
+/* lazy-load videos */
+function initVideoLazy() {
+  const vids = $$('video[preload="none"]');
+  if (!vids.length) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.load(); obs.unobserve(e.target); } });
+  }, { rootMargin: '250px' });
+  vids.forEach(v => obs.observe(v));
+}
+
+/* boot */
 document.addEventListener('DOMContentLoaded', () => {
+  initProgress();
   initNav();
-  initScrollProgress();
   initActiveLink();
   initReveal();
   initStagger();
   initSmoothScroll();
   initCounters();
   initParallax();
+  initLightbox();
+  initVideoLazy();
 });
