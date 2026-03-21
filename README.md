@@ -1,14 +1,5 @@
 # Aruzhan Maratova - NSRI (National Student Research Institute) ambassador website.  
 
-## How to Use  
-
-Simply open `index.html` in any modern web browser. No server or build tools required.
-
-To host online, upload all files (maintaining the folder structure) to any web host such as:  
-- GitHub Pages (free)  
-- Netlify (free)  
-- Vercel (free)  
-
 ## Important Links (embedded in site)  
 
 - Apply as NSRI Researcher: https://docs.google.com/forms/d/e/1FAIpQLSdRpaV17WwNGAAy86FF9VFYrpmZ_yRSQEMISS_Uq5lRHS1fow/viewform   
