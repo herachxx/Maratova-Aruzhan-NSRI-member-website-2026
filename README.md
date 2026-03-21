@@ -1,6 +1,6 @@
 # Maratova Aruzhan - NSRI School Ambassador Website
 
-NSRI (National Student Research Institute) is a global research community connecting high school students with PhD-level mentors from MIT, Emory, Oxford, and more. Our mission is to give students the access, structure, and mentorship they need to conduct a real research.
+**National Student Research Institute** is a global research community connecting high school students with PhD-level mentors from MIT, Emory, Oxford, and more. Our mission is to give students the access, structure, and mentorship they need to conduct a real research.
 
 ## Tech Stack
 
