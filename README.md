@@ -1,4 +1,4 @@
-# Aruzhan Maratova - NSRI (National Student Research Institute) ambassador website.  
+# Aruzhan Maratova - NSRI (National Student Research Institute) ambassador website
 
 ## Important Links (embedded in site)  
 
