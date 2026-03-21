@@ -124,6 +124,7 @@ body {
   background: linear-gradient(135deg, var(--accent), var(--blue-lt), var(--accent));
   box-shadow: 0 0 0 6px rgba(232,180,74,.18), var(--shadow-md);
   animation: ring-pulse 4s ease-in-out infinite;
+  overflow: hidden;
 }
 @keyframes ring-pulse {
   0%,100% { box-shadow: 0 0 0 6px rgba(232,180,74,.18), var(--shadow-md); }
@@ -131,7 +132,7 @@ body {
 }
 
 .profile-photo {
-  width: 100%; height: 100%;
+  width: 152px; height: 152px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
