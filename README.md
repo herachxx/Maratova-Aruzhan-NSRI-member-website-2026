@@ -1,4 +1,4 @@
-# Maratova Aruzhan - NSRI School Ambassador Website
+# Maratova Aruzhan - NSRI Ambassador Website
 
 **National Student Research Institute** is a global research community connecting high school students with PhD-level mentors from MIT, Emory, Oxford, and more. Our mission is to give students the access, structure, and mentorship they need to conduct a real research.
 
@@ -22,8 +22,8 @@
 | Discord | https://discord.gg/DZ9FwNYSeJ |
 | Chapter Guide | https://docs.google.com/document/d/1-sbIHMXYCO7OlAOu-e2Q4U62QWQkMR-JnDsBTpP10LA/edit |
 
+
 ---
 
-Built by **Maratova Aruzhan** · Aqbobek International School · Aktobe, Kazakhstan · 2026
-
+Built by **Maratova Aruzhan** · Aqbobek International School · Aktobe, Kazakhstan · 2026   
 Contact: aruzhanmaratova2009@gmail.com - feel free to reach out with any questions! ❤️
