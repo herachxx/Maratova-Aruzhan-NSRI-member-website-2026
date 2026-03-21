@@ -1,66 +1,68 @@
-// Scroll-triggered fade-up animations
+'use strict';
+
 document.addEventListener('DOMContentLoaded', () => {
-  const targets = document.querySelectorAll(
+
+  /* SCROLL FADE-UP */
+  const fadeEls = document.querySelectorAll(
     '.section, .stats-band, .benefit-card, .cta-section, footer'
   );
 
-  // Add fade-up class to animatable elements
-  targets.forEach(el => el.classList.add('fade-up'));
+  if ('IntersectionObserver' in window) {
+    fadeEls.forEach(el => el.classList.add('fade-up'));
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        // Stagger cards within a grid
-        const delay = entry.target.closest('.benefits-grid')
-          ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 80
-          : 0;
-        setTimeout(() => entry.target.classList.add('visible'), delay);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        // stagger benefit cards by their index
+        const siblings = el.parentElement
+          ? Array.from(el.parentElement.children)
+          : [];
+        const idx = siblings.indexOf(el);
+        const delay = el.classList.contains('benefit-card') ? idx * 90 : 0;
+        setTimeout(() => el.classList.add('visible'), delay);
+        fadeObserver.unobserve(el);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  targets.forEach(el => io.observe(el));
+    fadeEls.forEach(el => fadeObserver.observe(el));
+  } else {
+    // Fallback: show everything immediately
+    fadeEls.forEach(el => el.classList.add('visible'));
+  }
 
-  // Stat counter animation
-  const counters = document.querySelectorAll('.stat-num');
 
-  const parseNum = (el) => {
-    const raw = el.textContent.replace(/[^0-9,]/g, '').replace(',', '');
-    return parseInt(raw, 10);
-  };
+  /* STAT COUNTER ANIMATION */
+  const formatNum = n => n >= 1000 ? n.toLocaleString('en-US') : String(n);
 
-  const formatNum = (n) => n >= 1000 ? n.toLocaleString() : String(n);
-
-  const animateCounter = (el, target, suffix) => {
-    const duration = 1400;
+  const animateStat = (el) => {
+    const target = parseInt(el.dataset.target, 10);
+    if (isNaN(target)) return;
+    const suffix = '<span class="stat-plus">+</span>';
+    const duration = 1600;
     const start = performance.now();
+
     const tick = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      // Ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(eased * target);
-      el.innerHTML = formatNum(current) + suffix;
-      if (progress < 1) requestAnimationFrame(tick);
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+      el.innerHTML = formatNum(Math.round(eased * target)) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   };
 
-  const statObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const band = entry.target;
-        band.querySelectorAll('.stat').forEach(stat => {
-          const numEl = stat.querySelector('.stat-num');
-          const target = parseNum(numEl);
-          const suffix = `<span class="stat-plus">+</span>`;
-          animateCounter(numEl, target, suffix);
+  if ('IntersectionObserver' in window) {
+    const statsBand = document.querySelector('.stats-band');
+    if (statsBand) {
+      const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.querySelectorAll('.stat-num[data-target]').forEach(animateStat);
+          statObserver.unobserve(entry.target);
         });
-        statObserver.unobserve(band);
-      }
-    });
-  }, { threshold: 0.4 });
+      }, { threshold: 0.5 });
+      statObserver.observe(statsBand);
+    }
+  }
 
-  const statsBand = document.querySelector('.stats-band');
-  if (statsBand) statObserver.observe(statsBand);
 });
