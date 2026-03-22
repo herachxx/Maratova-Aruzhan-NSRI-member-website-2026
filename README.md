@@ -4,7 +4,7 @@
 
 ## Tech Stack
 
-- Vanilla HTML/CSS/JavaScript - no frameworks, no dependencies
+- HTML/CSS/JavaScript - no frameworks, no dependencies
 - Fonts: [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) + [DM Sans](https://fonts.google.com/specimen/DM+Sans) via Google Fonts
 - All icons are inline SVG (no icon library required)
 
